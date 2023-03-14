@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "DA_PROJ1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-DA_PROJ1-Debug-16fc63f28c9081722c09.json",
+					"jsonFile" : "target-DA_PROJ1-Debug-5b12e31575090592b463.json",
 					"name" : "DA_PROJ1",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/andre/DA_PROJ1/cmake-build-debug",
-		"source" : "C:/Users/andre/DA_PROJ1"
+		"build" : "C:/Users/anaso/Documents/FEUP/DA/DA/cmake-build-debug",
+		"source" : "C:/Users/anaso/Documents/FEUP/DA/DA"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 4
 	}
 }

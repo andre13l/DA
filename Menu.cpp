@@ -34,8 +34,8 @@ void Menu::showBasic(){
         cout << "4  -- Maximum number of trains that can simultaneously arrive at a given station  " << endl;
         cout << "0  -- Sair " << endl;
         cin >> k;
-        while(!(k==0 || k == 1 || k == 2 || k==3)){
-            cout << "Introduza um dos valores pedidos (1 a 3 , ou 0 caso pretenda sair)" << endl;
+        while(!(k==0 || k == 1 || k == 2 || k==3 || k==4)){
+            cout << "Introduza um dos valores pedidos (1 a 4 , ou 0 caso pretenda sair)" << endl;
             cin >> k;
         }
         switch (k) {
