@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DA_PROJ1.dir/Algorithms.cpp.obj"
+  "CMakeFiles/DA_PROJ1.dir/Algorithms.cpp.obj.d"
   "CMakeFiles/DA_PROJ1.dir/Menu.cpp.obj"
   "CMakeFiles/DA_PROJ1.dir/Menu.cpp.obj.d"
+  "CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.obj"
+  "CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.obj.d"
   "CMakeFiles/DA_PROJ1.dir/main.cpp.obj"
   "CMakeFiles/DA_PROJ1.dir/main.cpp.obj.d"
   "DA_PROJ1.exe"

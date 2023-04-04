@@ -128,6 +128,30 @@ DA_PROJ1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/build
 .PHONY : DA_PROJ1/fast
 
+Algorithms.obj: Algorithms.cpp.obj
+.PHONY : Algorithms.obj
+
+# target to build an object file
+Algorithms.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Algorithms.cpp.obj
+.PHONY : Algorithms.cpp.obj
+
+Algorithms.i: Algorithms.cpp.i
+.PHONY : Algorithms.i
+
+# target to preprocess a source file
+Algorithms.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Algorithms.cpp.i
+.PHONY : Algorithms.cpp.i
+
+Algorithms.s: Algorithms.cpp.s
+.PHONY : Algorithms.s
+
+# target to generate assembly for a file
+Algorithms.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Algorithms.cpp.s
+.PHONY : Algorithms.cpp.s
+
 Menu.obj: Menu.cpp.obj
 .PHONY : Menu.obj
 
@@ -151,6 +175,30 @@ Menu.s: Menu.cpp.s
 Menu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Menu.cpp.s
 .PHONY : Menu.cpp.s
+
+VertexEdge.obj: VertexEdge.cpp.obj
+.PHONY : VertexEdge.obj
+
+# target to build an object file
+VertexEdge.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.obj
+.PHONY : VertexEdge.cpp.obj
+
+VertexEdge.i: VertexEdge.cpp.i
+.PHONY : VertexEdge.i
+
+# target to preprocess a source file
+VertexEdge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.i
+.PHONY : VertexEdge.cpp.i
+
+VertexEdge.s: VertexEdge.cpp.s
+.PHONY : VertexEdge.s
+
+# target to generate assembly for a file
+VertexEdge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.s
+.PHONY : VertexEdge.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -185,9 +233,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... DA_PROJ1
+	@echo ... Algorithms.obj
+	@echo ... Algorithms.i
+	@echo ... Algorithms.s
 	@echo ... Menu.obj
 	@echo ... Menu.i
 	@echo ... Menu.s
+	@echo ... VertexEdge.obj
+	@echo ... VertexEdge.i
+	@echo ... VertexEdge.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -3,56 +3,98 @@
 //
 #include "Grafo.h"
 
-// Node structure to represent a vertex in the graph
-struct Node {
-    string name;
-    vector<Node*> neighbors;
-};
-
-// Graph class to represent a graph
-class Graph {
-public:
-    unordered_map<string, Node*> nodes;
-
-    void addNode(string name) {
-        Node* node = new Node;
-        node->name = name;
-        nodes[name] = node;
-    }
-
-    void addEdge(string node1, string node2) {
-        nodes[node1]->neighbors.push_back(nodes[node2]);
-        nodes[node2]->neighbors.push_back(nodes[node1]);
-    }
-};
-
-// Function to split a string by a delimiter
-vector<string> split(string str, char delimiter) {
-    vector<string> tokens;
-    stringstream ss(str);
-    string token;
-    while (getline(ss, token, delimiter)) {
-        tokens.push_back(token);
-    }
-    return tokens;
+Grafo::Grafo(string filename){
+    vector<vector<string>> content;
+    vector<string> row;
+    string linha, name, district, municipality, township, line;
+    int i = 0;
+    fstream file (filename, ios::in);
+    if(file.is_open()) {
+        while(getline(file, linha)) {
+            row.clear();
+            stringstream str(linha);
+            getline(str, name, ',');
+            getline(str, district, ',');
+            getline(str, municipality, ',');
+            getline(str, township, ',');
+            getline(str, line, ',');
+            addVertex(i, name, district, municipality, township, line);
+            i++;
+        }
+        cout << "Number of vertex - " << getNumVertex();
+    } else
+        cout<<"Could not open the file\n";
 }
 
-// Function to read from a CSV file and create a graph
-Graph readCSV(string filename) {
-    Graph graph;
-    ifstream file(filename);
-    string line;
-    while (getline(file, line)) {
-        vector<string> tokens = split(line, ',');
-        string node1 = tokens[0];
-        string node2 = tokens[1];
-        if (graph.nodes.find(node1) == graph.nodes.end()) {
-            graph.addNode(node1);
-        }
-        if (graph.nodes.find(node2) == graph.nodes.end()) {
-            graph.addNode(node2);
-        }
-        graph.addEdge(node1, node2);
+int Grafo::getNumVertex() const {
+    return vertexSet.size();
+}
+
+std::vector<Vertex *> Grafo::getVertexSet() const {
+    return vertexSet;
+}
+
+Vertex * Grafo::findVertex(const int &id) const {
+    for (auto v : vertexSet)
+        if (v->getId() == id)
+            return v;
+    return nullptr;
+}
+
+int Grafo::findVertexIdx(const int &id) const {
+    for (unsigned i = 0; i < vertexSet.size(); i++)
+        if (vertexSet[i]->getId() == id)
+            return i;
+    return -1;
+}
+bool Grafo::addVertex(const int &id, string &name, string &district, string &municipality, string &township, string &line) {
+    if (findVertex(id) != nullptr)
+        return false;
+    vertexSet.push_back(new Vertex(id, name, district, municipality, township, line));
+    return true;
+}
+
+bool Grafo::addEdge(const int &sourc, const int &dest, double w) {
+    auto v1= findVertex(sourc);
+    auto v2= findVertex(dest);
+    if (v1 == nullptr || v2 == nullptr)
+        return false;
+    v1->addEdge(v2, w);
+    return true;
+}
+
+bool Grafo::addBidirectionalEdge(const int &sourc, const int &dest, double w) {
+    auto v1 = findVertex(sourc);
+    auto v2 = findVertex(dest);
+    if (v1 == nullptr || v2 == nullptr)
+        return false;
+    auto e1 = v1->addEdge(v2, w);
+    auto e2 = v2->addEdge(v1, w);
+    e1->setReverse(e2);
+    e2->setReverse(e1);
+    return true;
+}
+
+
+void deleteMatrix(int **m, int n) {
+    if (m != nullptr) {
+        for (int i = 0; i < n; i++)
+            if (m[i] != nullptr)
+                delete [] m[i];
+        delete [] m;
     }
-    return graph;
+}
+
+void deleteMatrix(double **m, int n) {
+    if (m != nullptr) {
+        for (int i = 0; i < n; i++)
+            if (m[i] != nullptr)
+                delete [] m[i];
+        delete [] m;
+    }
+}
+
+Grafo::~Grafo() {
+    deleteMatrix(distMatrix, vertexSet.size());
+    deleteMatrix(pathMatrix, vertexSet.size());
 }
