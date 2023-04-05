@@ -93,18 +93,6 @@ bool Vertex::isVisited() const {
     return this->visited;
 }
 
-bool Vertex::isProcessing() const {
-    return this->processing;
-}
-
-unsigned int Vertex::getIndegree() const {
-    return this->indegree;
-}
-
-double Vertex::getDist() const {
-    return this->dist;
-}
-
 Edge *Vertex::getPath() const {
     return this->path;
 }
@@ -119,18 +107,6 @@ void Vertex::setId(int id) {
 
 void Vertex::setVisited(bool visited) {
     this->visited = visited;
-}
-
-void Vertex::setProcesssing(bool processing) {
-    this->processing = processing;
-}
-
-void Vertex::setIndegree(unsigned int indegree) {
-    this->indegree = indegree;
-}
-
-void Vertex::setDist(double dist) {
-    this->dist = dist;
 }
 
 void Vertex::setPath(Edge *path) {

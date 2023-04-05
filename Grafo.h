@@ -80,7 +80,12 @@ public:
      **/
     bool addBidirectionalEdge(const int &sourc, const int &dest, double w, std::string type);
 
-    //TODO
+    /**
+     * @brief Método que utiliza o método de Edmonds-Karp para encontrar os augmentation paths e o fluxo máximo
+     * @param source Nome do vértice de origem
+     * @param target Nome do vértice de destino
+     * @return O fluxo máximo
+     **/
     double edmondsKarp(string source, string target);
 
     /**
@@ -99,12 +104,36 @@ protected:
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
     int **pathMatrix = nullptr;   // path matrix for Floyd-Warshall
 
-    //TODO
+    /**
+     * @brief Método para marcar o vértice como visitado
+     * @param q Queue de vértices
+     * @param e Aresta
+     * @param w Vértice
+     * @param residual Fluxo Residual
+     **/
     void testAndVisit(std::queue< Vertex*> &q, Edge *e, Vertex *w, double residual);
+    /**
+     * @brief Método para descobrir o Augmenting Path
+     * @param s Vértice de origem
+     * @param t Vértice de destino
+     * @retval true Quando o vértice de destino é visitado
+     * @retval false Quando o vértice de destino ainda não foi visitado
+     **/
     bool findAugmentingPath(Vertex *s, Vertex *t);
+    /**
+     * @brief Método para descobrir o fluxo residual mínimo
+     * @param s Vértice de origem
+     * @param t Vértice de destino
+     * @return Número do fluxo residual mínimo
+     **/
     double findMinResidualAlongPath(Vertex *s, Vertex *t);
+    /**
+     * @brief Método para definir o fluxo residual ao longo do algoritmo
+     * @param s Vértice de origem
+     * @param t Vértice de destino
+     * @param f Fluxo residual
+     **/
     void augmentFlowAlongPath(Vertex *s, Vertex *t, double f);
-
 };
 
 void deleteMatrix(int **m, int n);

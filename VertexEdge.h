@@ -30,29 +30,90 @@ public:
     Vertex(int id, std::string name, std::string district, std::string municipality, std::string township, std::string line);
     bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
 
+    /**
+     * @brief Método que obtém o id do vértice
+     * @return Id do vértice
+     **/
     int getId() const;
+    /**
+     * @brief Método que obtém o nome do vértice
+     * @return Nome do vértice
+     **/
     std::string getName() const;
+    /**
+     * @brief Método que obtém o distrito do vértice
+     * @return Distrito do vértice
+     **/
     std::string getDistrict() const;
+    /**
+     * @brief Método que obtém o município do vértice
+     * @return Município do vértice
+     **/
     std::string getMunicipality() const;
+    /**
+     * @brief Método que obtém a freguesia do vértice
+     * @return Freguesia do vértice
+     **/
     std::string getTownship() const;
+    /**
+     * @brief Método que obtém a linha do vértice
+     * @return Linha do vértice
+     **/
     std::string getLine() const;
-
+    /**
+     * @brief Método que obtém as arestas adjacentes
+     * @return Vetor com as arestas adjacentes
+     **/
     std::vector<Edge *> getAdj() const;
+    /**
+     * @brief Método para verificar se o vértice é visitado
+     * @retval true Quando o vértice é visitado
+     * @retval false Quando o vértice não é visitado
+     **/
     bool isVisited() const;
-    bool isProcessing() const;
-    unsigned int getIndegree() const;
-    double getDist() const;
+    /**
+     * @brief Método que obtém a aresta que tem como destino este vértice
+     * @return Aresta que tem como destino este vértice
+     **/
     Edge *getPath() const;
+    /**
+     * @brief Método que obtém as arestas de entrada
+     * @return Vetor com as arestas de entrada
+     **/
     std::vector<Edge *> getIncoming() const;
-
+    /**
+     * @brief Método que define o id do vértice
+     * @param info Id do vértice
+     **/
     void setId(int info);
+    /**
+     * @brief Método que define se o vértice é visitado ou não
+     * @param visited true se é visitado ou false se não é visitado
+     **/
     void setVisited(bool visited);
-    void setProcesssing(bool processing);
-    void setIndegree(unsigned int indegree);
-    void setDist(double dist);
+    /**
+     * @brief Método que define a aresta que tem como destino este vértice
+     * @param path Aresta que tem como destino este vértice
+     **/
     void setPath(Edge *path);
+    /**
+     * @brief Método para adicionar uma aresta
+     * @param dest Vértice de destino
+     * @param w Capacidade da aresta
+     * @param type Tipo da aresta
+     * @return Aresta criada
+     **/
     Edge * addEdge(Vertex *dest, double w, std::string type);
+    /**
+     * @brief Método para remover uma aresta
+     * @param destID Id do vértice de destino
+     * @retval true Quando a aresta é removida com sucesso
+     * @retval false Quando a aresta não existe previamente
+     **/
     bool removeEdge(int destID);
+    /**
+     * @brief Método para remover arestas adjacentes
+     **/
     void removeOutgoingEdges();
 
 protected:
@@ -66,8 +127,6 @@ protected:
 
     // auxiliary fields
     bool visited = false; // used by DFS, BFS, Prim ...
-    bool processing = false; // used by isDAG (in addition to the visited attribute)
-    unsigned int indegree; // used by topsort
     double dist = 0;
     Edge *path = nullptr;
 
@@ -75,6 +134,10 @@ protected:
 
     int queueIndex = 0; 		// required by MutablePriorityQueue and UFDS
 
+    /**
+     * @brief Método que elimina uma aresta
+     * @param edge Aresta a ser eliminada
+     **/
     void deleteEdge(Edge *edge);
 };
 
@@ -84,16 +147,56 @@ class Edge {
 public:
     Edge(Vertex *orig, Vertex *dest, double w, std::string type);
 
+    /**
+     * @brief Método que obtém o vértice de destino
+     * @return Vértice de destino
+     **/
     Vertex * getDest() const;
+    /**
+     * @brief Método que obtém a capacidade da aresta
+     * @return Capacidade da aresta
+     **/
     double getWeight() const;
+    /**
+     * @brief Método que obtém o tipo da aresta
+     * @return Tipo da aresta
+     **/
     std::string getType() const;
+    /**
+     * @brief Método para verificar que a aresta é selecionada ou não
+     * @retval true Quando a aresta é selecionada
+     * @retval false Quando a aresta não é selecionada
+     **/
     bool isSelected() const;
+    /**
+     * @brief Método que obtém o vértice de origem
+     * @return Vértice de origem
+     **/
     Vertex * getOrig() const;
+    /**
+     * @brief Método que obtém a aresta inversa
+     * @return Aresta inversa
+     **/
     Edge *getReverse() const;
+    /**
+     * @brief Método que obtém o fluxo
+     * @return Fluxo
+     **/
     double getFlow() const;
-
+    /**
+     * @brief Método que define se a aresta é selecionada ou não
+     * @param selected true para selecionar a aresta e false para não selecionar a aresta
+     **/
     void setSelected(bool selected);
+    /**
+     * @brief Método que define a aresta inversa
+     * @param reverse Aresta inversa
+     **/
     void setReverse(Edge *reverse);
+    /**
+     * @brief Método que define o fluxo
+     * @param flow Fluxo
+     **/
     void setFlow(double flow);
 protected:
     Vertex * dest; // destination vertex
