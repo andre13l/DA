@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-    Grafo stations("../stations.csv");
+    Grafo graph("../stations.csv", "../network.csv");
     Menu* m = new Menu();
 
     m->showMenu();

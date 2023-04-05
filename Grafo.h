@@ -14,12 +14,13 @@ using namespace std;
 class Grafo{
 
 public:
-    Grafo(std::string filename);
+    Grafo(std::string stationsFilename, std::string networkFilename);
     ~Grafo();
     Vertex *findVertex(const int &id) const;
+    int findVertexName(const string &name) const;
     bool addVertex(const int &id, string &name, string &district, string &municipality, string &township, string &line);
-    bool addEdge(const int &sourc, const int &dest, double w);
-    bool addBidirectionalEdge(const int &sourc, const int &dest, double w);
+    bool addEdge(const int &sourc, const int &dest, double w, std::string type);
+    bool addBidirectionalEdge(const int &sourc, const int &dest, double w, std::string type);
 
     int getNumVertex() const;
     std::vector<Vertex *> getVertexSet() const;

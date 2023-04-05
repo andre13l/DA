@@ -128,30 +128,6 @@ DA_PROJ1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/build
 .PHONY : DA_PROJ1/fast
 
-Algorithms.obj: Algorithms.cpp.obj
-.PHONY : Algorithms.obj
-
-# target to build an object file
-Algorithms.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Algorithms.cpp.obj
-.PHONY : Algorithms.cpp.obj
-
-Algorithms.i: Algorithms.cpp.i
-.PHONY : Algorithms.i
-
-# target to preprocess a source file
-Algorithms.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Algorithms.cpp.i
-.PHONY : Algorithms.cpp.i
-
-Algorithms.s: Algorithms.cpp.s
-.PHONY : Algorithms.s
-
-# target to generate assembly for a file
-Algorithms.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Algorithms.cpp.s
-.PHONY : Algorithms.cpp.s
-
 Menu.obj: Menu.cpp.obj
 .PHONY : Menu.obj
 
@@ -233,9 +209,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... DA_PROJ1
-	@echo ... Algorithms.obj
-	@echo ... Algorithms.i
-	@echo ... Algorithms.s
 	@echo ... Menu.obj
 	@echo ... Menu.i
 	@echo ... Menu.s

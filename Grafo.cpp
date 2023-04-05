@@ -3,15 +3,14 @@
 //
 #include "Grafo.h"
 
-Grafo::Grafo(string filename){
-    vector<vector<string>> content;
-    vector<string> row;
+Grafo::Grafo(string stations, string network){
+    // Create Vertex with stations.csv file
     string linha, name, district, municipality, township, line;
     int i = 0;
-    fstream file (filename, ios::in);
-    if(file.is_open()) {
-        while(getline(file, linha)) {
-            row.clear();
+    fstream stationsFile (stations, ios::in);
+    if(stationsFile.is_open()) {
+        getline(stationsFile, linha);
+        while(getline(stationsFile, linha)) {
             stringstream str(linha);
             getline(str, name, ',');
             getline(str, district, ',');
@@ -21,9 +20,23 @@ Grafo::Grafo(string filename){
             addVertex(i, name, district, municipality, township, line);
             i++;
         }
-        cout << "Number of vertex - " << getNumVertex();
     } else
-        cout<<"Could not open the file\n";
+        cout<<"Could not open the stations' file\n";
+    // Create Edges with network.csv file
+    string origin, destiny, weight, type;
+    fstream networkFile (network, ios::in);
+    if(networkFile.is_open()) {
+        getline(networkFile, linha);
+        while(getline(networkFile, linha)) {
+            stringstream str(linha);
+            getline(str, origin, ',');
+            getline(str, destiny, ',');
+            getline(str, weight, ',');
+            getline(str, type, ',');
+            addBidirectionalEdge(findVertexName(origin), findVertexName(destiny), stod(weight), type);
+        }
+    } else
+        cout<<"Could not open the network's file\n";
 }
 
 int Grafo::getNumVertex() const {
@@ -41,6 +54,13 @@ Vertex * Grafo::findVertex(const int &id) const {
     return nullptr;
 }
 
+int Grafo::findVertexName(const string &name) const {
+    for (auto v:vertexSet)
+        if (v->getName() == name)
+            return v->getId();
+    return -1;
+}
+
 int Grafo::findVertexIdx(const int &id) const {
     for (unsigned i = 0; i < vertexSet.size(); i++)
         if (vertexSet[i]->getId() == id)
@@ -54,22 +74,22 @@ bool Grafo::addVertex(const int &id, string &name, string &district, string &mun
     return true;
 }
 
-bool Grafo::addEdge(const int &sourc, const int &dest, double w) {
+bool Grafo::addEdge(const int &sourc, const int &dest, double w, string type) {
     auto v1= findVertex(sourc);
     auto v2= findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
         return false;
-    v1->addEdge(v2, w);
+    v1->addEdge(v2, w, type);
     return true;
 }
 
-bool Grafo::addBidirectionalEdge(const int &sourc, const int &dest, double w) {
+bool Grafo::addBidirectionalEdge(const int &sourc, const int &dest, double w, string type) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
         return false;
-    auto e1 = v1->addEdge(v2, w);
-    auto e2 = v2->addEdge(v1, w);
+    auto e1 = v1->addEdge(v2, w, type);
+    auto e2 = v2->addEdge(v1, w, type);
     e1->setReverse(e2);
     e2->setReverse(e1);
     return true;

@@ -12,8 +12,8 @@ Vertex::Vertex(int id, std::string name, std::string district, std::string munic
  * Auxiliary function to add an outgoing edge to a vertex (this),
  * with a given destination vertex (d) and edge weight (w).
  */
-Edge * Vertex::addEdge(Vertex *d, double w) {
-    auto newEdge = new Edge(this, d, w);
+Edge * Vertex::addEdge(Vertex *d, double w, std::string type) {
+    auto newEdge = new Edge(this, d, w, type);
     adj.push_back(newEdge);
     d->incoming.push_back(newEdge);
     return newEdge;
@@ -61,6 +61,27 @@ bool Vertex::operator<(Vertex & vertex) const {
 int Vertex::getId() const {
     return this->id;
 }
+
+std::string Vertex::getName() const {
+    return this->name;
+}
+
+std::string Vertex::getDistrict() const{
+    return this->district;
+}
+
+std::string Vertex::getMunicipality() const{
+    return this->municipality;
+}
+
+std::string Vertex::getTownship() const{
+    return this->township;
+}
+
+std::string Vertex::getLine() const{
+    return this->line;
+}
+
 
 std::vector<Edge*> Vertex::getAdj() const {
     return this->adj;
@@ -131,10 +152,14 @@ void Vertex::deleteEdge(Edge *edge) {
 
 /********************** Edge  ****************************/
 
-Edge::Edge(Vertex *orig, Vertex *dest, double w): orig(orig), dest(dest), weight(w) {}
+Edge::Edge(Vertex *orig, Vertex *dest, double w, std::string type): orig(orig), dest(dest), weight(w), type(type) {}
 
 Vertex * Edge::getDest() const {
     return this->dest;
+}
+
+std::string Edge::getType() const {
+    return this->type;
 }
 
 double Edge::getWeight() const {

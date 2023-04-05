@@ -22,6 +22,12 @@ public:
     bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
 
     int getId() const;
+    std::string getName() const;
+    std::string getDistrict() const;
+    std::string getMunicipality() const;
+    std::string getTownship() const;
+    std::string getLine() const;
+
     std::vector<Edge *> getAdj() const;
     bool isVisited() const;
     bool isProcessing() const;
@@ -36,7 +42,7 @@ public:
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
     void setPath(Edge *path);
-    Edge * addEdge(Vertex *dest, double w);
+    Edge * addEdge(Vertex *dest, double w, std::string type);
     bool removeEdge(int destID);
     void removeOutgoingEdges();
 
@@ -67,10 +73,11 @@ protected:
 
 class Edge {
 public:
-    Edge(Vertex *orig, Vertex *dest, double w);
+    Edge(Vertex *orig, Vertex *dest, double w, std::string type);
 
     Vertex * getDest() const;
     double getWeight() const;
+    std::string getType() const;
     bool isSelected() const;
     Vertex * getOrig() const;
     Edge *getReverse() const;
@@ -82,6 +89,7 @@ public:
 protected:
     Vertex * dest; // destination vertex
     double weight; // edge weight, can also be used for capacity
+    std::string type;
 
     // auxiliary fields
     bool selected = false;
