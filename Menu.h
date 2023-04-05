@@ -10,6 +10,8 @@ using namespace std;
 class Menu {
 public:
     Menu();
+    Menu(ServiceMetrics* servico);
+    void showinitialMenu();
     void showMenu();
     void showOptimization();
     void showBasic();

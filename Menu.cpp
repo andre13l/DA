@@ -8,12 +8,46 @@ Menu::Menu(){
     service = new ServiceMetrics();
 }
 
+Menu::Menu(ServiceMetrics* servico): service(servico) {}
+
 void Menu::setService(ServiceMetrics* service){
     this->service = service;
 }
 
 ServiceMetrics* Menu::getService() {
     return service;
+}
+
+void Menu::showinitialMenu(){
+    int k;
+    while(1) {
+        cout << "Escolha os documentos para inicializar a rede ferroviaria: " << endl;
+        cout << "Escolha uma opcao de 1 a 2 ou 0 para sair:"<< endl;
+        cout << "1  -- Documentos padrao (network.csv e stations.csv)" << endl;
+        cout << "2  -- Outros documentos" << endl;
+        while(!(k==0 || k == 1 || k == 2)){
+            cout << "Introduza um dos valores pedidos (1 a 2 , ou 0 caso pretenda sair)" << endl;
+            cin >> k;
+        }
+        switch (k) {
+            case 1:showMenu(); break;
+            case 2:{
+                std::string network, stations;
+                cout << "Digite o nome do documento para inicializar as estacoes: " << endl;
+                cin >> stations;
+                cout << "Digite o nome do documento para inicializar a rede: " << endl;
+                cin >> network;
+                auto* grafo = new Grafo(stations, network);
+                auto* servico = new ServiceMetrics(grafo);
+                setService(servico);
+                showMenu(); break;
+            }
+            case 0: return;
+        }
+        cout << "Escolha os documentos para inicializar a rede ferroviaria: " << endl;
+        cout << "0  -- Sair" << endl;
+        cin >> k;
+    }
 }
 
 void Menu::showMenu(){

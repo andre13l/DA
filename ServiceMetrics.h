@@ -10,6 +10,7 @@
 class ServiceMetrics{
 public:
     ServiceMetrics();
+    ServiceMetrics(Grafo* grafo);
     int maxNTrainsSimultaneously(std::string origin, std::string destiny);
     std::string pairsRequireMostTrains();
     std::string largerBudget();

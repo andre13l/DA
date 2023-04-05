@@ -7,6 +7,9 @@ ServiceMetrics::ServiceMetrics(){
     this->graph = new Grafo("../stations.csv", "../network.csv");
 }
 
+ServiceMetrics::ServiceMetrics(Grafo* grafo): graph(grafo){}
+
+
 /* [T2.1: 3.5 points] Calculate the maximum number of trains that can simultaneously travel between two specific
  * stations. Note that your implementation should take any valid source and destination stations as input;
  */
@@ -19,6 +22,7 @@ int ServiceMetrics::maxNTrainsSimultaneously(std::string origin, std::string des
  * trains when taking full advantage of the existing network capacity;
  */
 std::string ServiceMetrics::pairsRequireMostTrains(){
+
     return NULL;
 }
 
