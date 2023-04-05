@@ -57,7 +57,9 @@
 			[
 				0,
 				1,
-				4
+				4,
+				5,
+				6
 			]
 		}
 	],
@@ -96,7 +98,9 @@
 			[
 				0,
 				1,
-				4
+				4,
+				5,
+				6
 			]
 		},
 		{
@@ -104,7 +108,8 @@
 			"sourceIndexes" : 
 			[
 				2,
-				3
+				3,
+				7
 			]
 		}
 	],
@@ -137,6 +142,23 @@
 			"compileGroupIndex" : 0,
 			"path" : "VertexEdge.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "ServiceMetrics.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Grafo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "ServiceMetrics.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

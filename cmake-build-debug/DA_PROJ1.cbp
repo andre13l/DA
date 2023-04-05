@@ -82,10 +82,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/anaso/Documents/FEUP/DA/DA/Grafo.cpp">
+			<Option target="DA_PROJ1"/>
+		</Unit>
+		<Unit filename="C:/Users/anaso/Documents/FEUP/DA/DA/Grafo.h">
+			<Option target="DA_PROJ1"/>
+		</Unit>
 		<Unit filename="C:/Users/anaso/Documents/FEUP/DA/DA/Menu.cpp">
 			<Option target="DA_PROJ1"/>
 		</Unit>
 		<Unit filename="C:/Users/anaso/Documents/FEUP/DA/DA/Menu.h">
+			<Option target="DA_PROJ1"/>
+		</Unit>
+		<Unit filename="C:/Users/anaso/Documents/FEUP/DA/DA/ServiceMetrics.cpp">
+			<Option target="DA_PROJ1"/>
+		</Unit>
+		<Unit filename="C:/Users/anaso/Documents/FEUP/DA/DA/ServiceMetrics.h">
 			<Option target="DA_PROJ1"/>
 		</Unit>
 		<Unit filename="C:/Users/anaso/Documents/FEUP/DA/DA/VertexEdge.cpp">

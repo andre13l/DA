@@ -128,6 +128,30 @@ DA_PROJ1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/build
 .PHONY : DA_PROJ1/fast
 
+Grafo.obj: Grafo.cpp.obj
+.PHONY : Grafo.obj
+
+# target to build an object file
+Grafo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj
+.PHONY : Grafo.cpp.obj
+
+Grafo.i: Grafo.cpp.i
+.PHONY : Grafo.i
+
+# target to preprocess a source file
+Grafo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Grafo.cpp.i
+.PHONY : Grafo.cpp.i
+
+Grafo.s: Grafo.cpp.s
+.PHONY : Grafo.s
+
+# target to generate assembly for a file
+Grafo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Grafo.cpp.s
+.PHONY : Grafo.cpp.s
+
 Menu.obj: Menu.cpp.obj
 .PHONY : Menu.obj
 
@@ -151,6 +175,30 @@ Menu.s: Menu.cpp.s
 Menu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/Menu.cpp.s
 .PHONY : Menu.cpp.s
+
+ServiceMetrics.obj: ServiceMetrics.cpp.obj
+.PHONY : ServiceMetrics.obj
+
+# target to build an object file
+ServiceMetrics.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj
+.PHONY : ServiceMetrics.cpp.obj
+
+ServiceMetrics.i: ServiceMetrics.cpp.i
+.PHONY : ServiceMetrics.i
+
+# target to preprocess a source file
+ServiceMetrics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.i
+.PHONY : ServiceMetrics.cpp.i
+
+ServiceMetrics.s: ServiceMetrics.cpp.s
+.PHONY : ServiceMetrics.s
+
+# target to generate assembly for a file
+ServiceMetrics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DA_PROJ1.dir\build.make CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.s
+.PHONY : ServiceMetrics.cpp.s
 
 VertexEdge.obj: VertexEdge.cpp.obj
 .PHONY : VertexEdge.obj
@@ -209,9 +257,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... DA_PROJ1
+	@echo ... Grafo.obj
+	@echo ... Grafo.i
+	@echo ... Grafo.s
 	@echo ... Menu.obj
 	@echo ... Menu.i
 	@echo ... Menu.s
+	@echo ... ServiceMetrics.obj
+	@echo ... ServiceMetrics.i
+	@echo ... ServiceMetrics.s
 	@echo ... VertexEdge.obj
 	@echo ... VertexEdge.i
 	@echo ... VertexEdge.s

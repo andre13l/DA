@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj"
+  "CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj.d"
   "CMakeFiles/DA_PROJ1.dir/Menu.cpp.obj"
   "CMakeFiles/DA_PROJ1.dir/Menu.cpp.obj.d"
+  "CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj"
+  "CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj.d"
   "CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.obj"
   "CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.obj.d"
   "CMakeFiles/DA_PROJ1.dir/main.cpp.obj"

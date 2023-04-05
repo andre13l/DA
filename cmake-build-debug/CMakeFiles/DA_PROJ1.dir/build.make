@@ -110,11 +110,41 @@ CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\anaso\Documents\FEUP\DA\DA\VertexEdge.cpp -o CMakeFiles\DA_PROJ1.dir\VertexEdge.cpp.s
 
+CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj: CMakeFiles/DA_PROJ1.dir/flags.make
+CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj: C:/Users/anaso/Documents/FEUP/DA/DA/ServiceMetrics.cpp
+CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj: CMakeFiles/DA_PROJ1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\anaso\Documents\FEUP\DA\DA\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj -MF CMakeFiles\DA_PROJ1.dir\ServiceMetrics.cpp.obj.d -o CMakeFiles\DA_PROJ1.dir\ServiceMetrics.cpp.obj -c C:\Users\anaso\Documents\FEUP\DA\DA\ServiceMetrics.cpp
+
+CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\anaso\Documents\FEUP\DA\DA\ServiceMetrics.cpp > CMakeFiles\DA_PROJ1.dir\ServiceMetrics.cpp.i
+
+CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\anaso\Documents\FEUP\DA\DA\ServiceMetrics.cpp -o CMakeFiles\DA_PROJ1.dir\ServiceMetrics.cpp.s
+
+CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj: CMakeFiles/DA_PROJ1.dir/flags.make
+CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj: C:/Users/anaso/Documents/FEUP/DA/DA/Grafo.cpp
+CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj: CMakeFiles/DA_PROJ1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\anaso\Documents\FEUP\DA\DA\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj -MF CMakeFiles\DA_PROJ1.dir\Grafo.cpp.obj.d -o CMakeFiles\DA_PROJ1.dir\Grafo.cpp.obj -c C:\Users\anaso\Documents\FEUP\DA\DA\Grafo.cpp
+
+CMakeFiles/DA_PROJ1.dir/Grafo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DA_PROJ1.dir/Grafo.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\anaso\Documents\FEUP\DA\DA\Grafo.cpp > CMakeFiles\DA_PROJ1.dir\Grafo.cpp.i
+
+CMakeFiles/DA_PROJ1.dir/Grafo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DA_PROJ1.dir/Grafo.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\anaso\Documents\FEUP\DA\DA\Grafo.cpp -o CMakeFiles\DA_PROJ1.dir\Grafo.cpp.s
+
 # Object files for target DA_PROJ1
 DA_PROJ1_OBJECTS = \
 "CMakeFiles/DA_PROJ1.dir/main.cpp.obj" \
 "CMakeFiles/DA_PROJ1.dir/Menu.cpp.obj" \
-"CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.obj"
+"CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.obj" \
+"CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj" \
+"CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj"
 
 # External object files for target DA_PROJ1
 DA_PROJ1_EXTERNAL_OBJECTS =
@@ -122,11 +152,13 @@ DA_PROJ1_EXTERNAL_OBJECTS =
 DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/main.cpp.obj
 DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/Menu.cpp.obj
 DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/VertexEdge.cpp.obj
+DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/ServiceMetrics.cpp.obj
+DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/Grafo.cpp.obj
 DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/build.make
 DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/linklibs.rsp
 DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/objects1.rsp
 DA_PROJ1.exe: CMakeFiles/DA_PROJ1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\anaso\Documents\FEUP\DA\DA\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable DA_PROJ1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\anaso\Documents\FEUP\DA\DA\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable DA_PROJ1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\DA_PROJ1.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -33,7 +33,7 @@ Grafo::Grafo(string stations, string network){
             getline(str, destiny, ',');
             getline(str, weight, ',');
             getline(str, type, ',');
-            addBidirectionalEdge(findVertexName(origin), findVertexName(destiny), stod(weight), type);
+            addBidirectionalEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(weight), type);
         }
     } else
         cout<<"Could not open the network's file\n";
@@ -54,11 +54,18 @@ Vertex * Grafo::findVertex(const int &id) const {
     return nullptr;
 }
 
-int Grafo::findVertexName(const string &name) const {
+int Grafo::findVertexIdName(const string &name) const {
     for (auto v:vertexSet)
         if (v->getName() == name)
             return v->getId();
     return -1;
+}
+
+Vertex* Grafo::findVertexName(const string &name) const {
+    for (auto v:vertexSet)
+        if (v->getName() == name)
+            return v;
+    return nullptr;
 }
 
 int Grafo::findVertexIdx(const int &id) const {
