@@ -1,6 +1,9 @@
-//
-// Created by andre on 28/02/2023.
-//
+/*********************************************************************
+ * @file  Grafo.cpp
+ *
+ * @brief Implementação da classe Grafo
+ *********************************************************************/
+
 #include "Grafo.h"
 
 Grafo::Grafo(string stations, string network){
@@ -68,12 +71,6 @@ Vertex* Grafo::findVertexName(const string &name) const {
     return nullptr;
 }
 
-int Grafo::findVertexIdx(const int &id) const {
-    for (unsigned i = 0; i < vertexSet.size(); i++)
-        if (vertexSet[i]->getId() == id)
-            return i;
-    return -1;
-}
 bool Grafo::addVertex(const int &id, string &name, string &district, string &municipality, string &township, string &line) {
     if (findVertex(id) != nullptr)
         return false;

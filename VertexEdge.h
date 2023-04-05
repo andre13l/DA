@@ -1,6 +1,8 @@
-//
-// Created by anaso on 04/04/2023.
-//
+/*********************************************************************
+ * @file  VertexEdge.h
+ *
+ * @brief Declaração das classes Vertex e Edge
+ *********************************************************************/
 
 #ifndef DA_PROJ1_VERTEXEDGE_H
 #define DA_PROJ1_VERTEXEDGE_H
@@ -10,12 +12,19 @@
 #include <sstream>
 #include <limits>
 
+/**
+ * @class Edge
+ * @brief Classe relativa a uma aresta do grafo
+ **/
 class Edge;
 
 #define INF std::numeric_limits<double>::max()
 
 /************************* Vertex  **************************/
-
+/**
+ * @class Vertex
+ * @brief Classe relativa a um vértice do grafo
+ **/
 class Vertex {
 public:
     Vertex(int id, std::string name, std::string district, std::string municipality, std::string township, std::string line);

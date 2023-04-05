@@ -1,12 +1,19 @@
-//
-// Created by andre on 07/03/2023.
-//
+/*********************************************************************
+ * @file  Menu.h
+ *
+ * @brief Declaração da classe Menu
+ *********************************************************************/
+
 #include <iostream>
 #include "ServiceMetrics.h"
 #ifndef DA_PROJ1_MENU_H
 #define DA_PROJ1_MENU_H
 using namespace std;
 
+/**
+ * @class Menu
+ * @brief Classe relativa ao menu
+ * **/
 class Menu {
 public:
     Menu();

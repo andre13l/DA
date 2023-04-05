@@ -1,0 +1,131 @@
+\hypertarget{class_service_metrics}{}\doxysection{Service\+Metrics Class Reference}
+\label{class_service_metrics}\index{ServiceMetrics@{ServiceMetrics}}
+
+
+Classe com os métodos necessários para a resolução do problema inicial.  
+
+
+
+
+{\ttfamily \#include $<$Service\+Metrics.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_service_metrics_a4c9f6a528476119b7a8f53ad51145d64}{Service\+Metrics}} ()
+\item 
+\mbox{\hyperlink{class_service_metrics_a2eecdce332cff0aed75f640bcafebfb0}{Service\+Metrics}} (\mbox{\hyperlink{class_grafo}{Grafo}} $\ast$grafo)
+\item 
+int \mbox{\hyperlink{class_service_metrics_a4cd1ec7160b493026a3d0b09225dd93b}{max\+NTrains\+Simultaneously}} (std\+::string origin, std\+::string destiny)
+\begin{DoxyCompactList}\small\item\em Método que calcula o número máximo de comboios que podem viajar simultaneamente entre duas estações específicas. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_service_metrics_ab156604a1a6e5606c9a9d5403ebebb6a}{pairs\+Require\+Most\+Trains}} ()
+\begin{DoxyCompactList}\small\item\em Método que determina, entre todos os pares de estações, aqueles que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_service_metrics_a33c31c6728eb0a0c962dd728ebb96920}{larger\+Budget}} ()
+\begin{DoxyCompactList}\small\item\em Método que indica onde a administração deve atribuir maiores orçamentos para a compra e manutenção dos comboios. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_service_metrics_aca38e8663403b0c2b1ae5101cc48ab04}{max\+NTrains\+Arriving}} (std\+::string station)
+\begin{DoxyCompactList}\small\item\em Método que reporta o número máximo de comboios que conseguem chegar simultaneamente a uma estação indicada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grafo}{Grafo}} $\ast$ \mbox{\hyperlink{class_service_metrics_a7cbf7862bb366d0265481225b4bbdc86}{graph}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe com os métodos necessários para a resolução do problema inicial. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_service_metrics_a4c9f6a528476119b7a8f53ad51145d64}\label{class_service_metrics_a4c9f6a528476119b7a8f53ad51145d64}} 
+\index{ServiceMetrics@{ServiceMetrics}!ServiceMetrics@{ServiceMetrics}}
+\index{ServiceMetrics@{ServiceMetrics}!ServiceMetrics@{ServiceMetrics}}
+\doxysubsubsection{\texorpdfstring{ServiceMetrics()}{ServiceMetrics()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Service\+Metrics\+::\+Service\+Metrics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_service_metrics_a2eecdce332cff0aed75f640bcafebfb0}\label{class_service_metrics_a2eecdce332cff0aed75f640bcafebfb0}} 
+\index{ServiceMetrics@{ServiceMetrics}!ServiceMetrics@{ServiceMetrics}}
+\index{ServiceMetrics@{ServiceMetrics}!ServiceMetrics@{ServiceMetrics}}
+\doxysubsubsection{\texorpdfstring{ServiceMetrics()}{ServiceMetrics()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Service\+Metrics\+::\+Service\+Metrics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grafo}{Grafo}} $\ast$}]{grafo }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_service_metrics_a33c31c6728eb0a0c962dd728ebb96920}\label{class_service_metrics_a33c31c6728eb0a0c962dd728ebb96920}} 
+\index{ServiceMetrics@{ServiceMetrics}!largerBudget@{largerBudget}}
+\index{largerBudget@{largerBudget}!ServiceMetrics@{ServiceMetrics}}
+\doxysubsubsection{\texorpdfstring{largerBudget()}{largerBudget()}}
+{\footnotesize\ttfamily std\+::string Service\+Metrics\+::larger\+Budget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Método que indica onde a administração deve atribuir maiores orçamentos para a compra e manutenção dos comboios. 
+
+\begin{DoxyReturn}{Returns}
+Municípios e Distritos com maior necessidade de investimento 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_service_metrics_aca38e8663403b0c2b1ae5101cc48ab04}\label{class_service_metrics_aca38e8663403b0c2b1ae5101cc48ab04}} 
+\index{ServiceMetrics@{ServiceMetrics}!maxNTrainsArriving@{maxNTrainsArriving}}
+\index{maxNTrainsArriving@{maxNTrainsArriving}!ServiceMetrics@{ServiceMetrics}}
+\doxysubsubsection{\texorpdfstring{maxNTrainsArriving()}{maxNTrainsArriving()}}
+{\footnotesize\ttfamily int Service\+Metrics\+::max\+NTrains\+Arriving (\begin{DoxyParamCaption}\item[{std\+::string}]{station }\end{DoxyParamCaption})}
+
+
+
+Método que reporta o número máximo de comboios que conseguem chegar simultaneamente a uma estação indicada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em station} & Nome da estação pretendida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Número de comboios que conseguem chegar simultaneamente à estação 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_service_metrics_a4cd1ec7160b493026a3d0b09225dd93b}\label{class_service_metrics_a4cd1ec7160b493026a3d0b09225dd93b}} 
+\index{ServiceMetrics@{ServiceMetrics}!maxNTrainsSimultaneously@{maxNTrainsSimultaneously}}
+\index{maxNTrainsSimultaneously@{maxNTrainsSimultaneously}!ServiceMetrics@{ServiceMetrics}}
+\doxysubsubsection{\texorpdfstring{maxNTrainsSimultaneously()}{maxNTrainsSimultaneously()}}
+{\footnotesize\ttfamily int Service\+Metrics\+::max\+NTrains\+Simultaneously (\begin{DoxyParamCaption}\item[{std\+::string}]{origin,  }\item[{std\+::string}]{destiny }\end{DoxyParamCaption})}
+
+
+
+Método que calcula o número máximo de comboios que podem viajar simultaneamente entre duas estações específicas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & Nome da estação de origem \\
+\hline
+{\em destiny} & Nome da estação de destino \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Número máximo de comboios que podem viajar simultaneamente entre duas estações específicas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_service_metrics_ab156604a1a6e5606c9a9d5403ebebb6a}\label{class_service_metrics_ab156604a1a6e5606c9a9d5403ebebb6a}} 
+\index{ServiceMetrics@{ServiceMetrics}!pairsRequireMostTrains@{pairsRequireMostTrains}}
+\index{pairsRequireMostTrains@{pairsRequireMostTrains}!ServiceMetrics@{ServiceMetrics}}
+\doxysubsubsection{\texorpdfstring{pairsRequireMostTrains()}{pairsRequireMostTrains()}}
+{\footnotesize\ttfamily std\+::string Service\+Metrics\+::pairs\+Require\+Most\+Trains (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Método que determina, entre todos os pares de estações, aqueles que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente. 
+
+\begin{DoxyReturn}{Returns}
+Pares de estações 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_service_metrics_a7cbf7862bb366d0265481225b4bbdc86}\label{class_service_metrics_a7cbf7862bb366d0265481225b4bbdc86}} 
+\index{ServiceMetrics@{ServiceMetrics}!graph@{graph}}
+\index{graph@{graph}!ServiceMetrics@{ServiceMetrics}}
+\doxysubsubsection{\texorpdfstring{graph}{graph}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grafo}{Grafo}}$\ast$ Service\+Metrics\+::graph\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_metrics_8h}{Service\+Metrics.\+h}}\item 
+\mbox{\hyperlink{_service_metrics_8cpp}{Service\+Metrics.\+cpp}}\end{DoxyCompactItemize}

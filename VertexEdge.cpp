@@ -1,6 +1,8 @@
-//
-// Created by anaso on 04/04/2023.
-//
+/*********************************************************************
+ * @file  VertexEdge.cpp
+ *
+ * @brief Implementação das classes Vertex e Edge
+ *********************************************************************/
 
 #include "VertexEdge.h"
 

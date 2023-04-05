@@ -1,0 +1,302 @@
+\hypertarget{class_grafo}{}\doxysection{Grafo Class Reference}
+\label{class_grafo}\index{Grafo@{Grafo}}
+
+
+Classe relativa ao grafo.  
+
+
+
+
+{\ttfamily \#include $<$Grafo.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grafo_afe96c9fa40b0f2e2d9626946c9b8ed3c}{Grafo}} (std\+::string stations\+Filename, std\+::string network\+Filename)
+\item 
+\mbox{\hyperlink{class_grafo_a16f3fbba0de2667dfba3b657cb7e95ff}{$\sim$\+Grafo}} ()
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_grafo_a860ae60d287d0ff4cfec1b1e15309ad0}{find\+Vertex}} (const int \&id) const
+\begin{DoxyCompactList}\small\item\em Método que encontra o vértice a partir do índice. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_grafo_a8b2c0d19ce2a94bec1fbbcc8087db638}{find\+Vertex\+Id\+Name}} (const string \&name) const
+\begin{DoxyCompactList}\small\item\em Método que encontra o índice do vértice a partir do seu nome. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_grafo_a78ede9d555626aed874951e61b4b3556}{find\+Vertex\+Name}} (const string \&name) const
+\begin{DoxyCompactList}\small\item\em Método que encontra o vértice a partir do seu nome. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_grafo_aa8792314d596153cf3036694f1223ac1}{add\+Vertex}} (const int \&id, string \&name, string \&district, string \&municipality, string \&township, string \&line)
+\begin{DoxyCompactList}\small\item\em Método que adiciona um vértice ao grafo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_grafo_a6ab64563ba34beff75795ad7b1eeb92f}{add\+Edge}} (const int \&sourc, const int \&dest, double w, std\+::string type)
+\begin{DoxyCompactList}\small\item\em Método que adiciona uma aresta ao grafo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_grafo_a255d0be94cb45fdd43e486671042df5a}{add\+Bidirectional\+Edge}} (const int \&sourc, const int \&dest, double w, std\+::string type)
+\begin{DoxyCompactList}\small\item\em Método que adiciona uma aresta bidirecional ao grafo. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_grafo_a953ecb48d1ae4fd2494d853475d18c12}{edmonds\+Karp}} (string source, string target)
+\item 
+int \mbox{\hyperlink{class_grafo_aad7bb3659eaba81591f287ad4c0bad40}{get\+Num\+Vertex}} () const
+\begin{DoxyCompactList}\small\item\em Método que obtém o número de vértices do grafo. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_grafo_a75e399e3e151d4dff7379d391acddf5a}{get\+Vertex\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Método que obtém os vértices do grafo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_grafo_abc539afa802f56058aa5c8bb5f2f7f30}{test\+And\+Visit}} (std\+::queue$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \&q, \mbox{\hyperlink{class_edge}{Edge}} $\ast$e, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$w, double residual)
+\item 
+bool \mbox{\hyperlink{class_grafo_aa5080cb26ff0857346f7acb365d660f5}{find\+Augmenting\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$s, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$t)
+\item 
+double \mbox{\hyperlink{class_grafo_af0f3dc22043610f54de986943262be38}{find\+Min\+Residual\+Along\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$s, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$t)
+\item 
+void \mbox{\hyperlink{class_grafo_af12715bd6bb2ba2675f6dbed3fc77cb8}{augment\+Flow\+Along\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$s, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$t, double f)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_grafo_ab39e089a5a539e3d71a01543aa0014b9}{vertex\+Set}}
+\item 
+double $\ast$$\ast$ \mbox{\hyperlink{class_grafo_a61e0b40e2994b7d008fa170c7c0bdb09}{dist\+Matrix}} = nullptr
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{class_grafo_a44d794c56dae0556fc72554c255c7fc6}{path\+Matrix}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe relativa ao grafo. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grafo_afe96c9fa40b0f2e2d9626946c9b8ed3c}\label{class_grafo_afe96c9fa40b0f2e2d9626946c9b8ed3c}} 
+\index{Grafo@{Grafo}!Grafo@{Grafo}}
+\index{Grafo@{Grafo}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{Grafo()}{Grafo()}}
+{\footnotesize\ttfamily Grafo\+::\+Grafo (\begin{DoxyParamCaption}\item[{std\+::string}]{stations\+Filename,  }\item[{std\+::string}]{network\+Filename }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_grafo_a16f3fbba0de2667dfba3b657cb7e95ff}\label{class_grafo_a16f3fbba0de2667dfba3b657cb7e95ff}} 
+\index{Grafo@{Grafo}!````~Grafo@{$\sim$Grafo}}
+\index{````~Grafo@{$\sim$Grafo}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{$\sim$Grafo()}{~Grafo()}}
+{\footnotesize\ttfamily Grafo\+::$\sim$\+Grafo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_grafo_a255d0be94cb45fdd43e486671042df5a}\label{class_grafo_a255d0be94cb45fdd43e486671042df5a}} 
+\index{Grafo@{Grafo}!addBidirectionalEdge@{addBidirectionalEdge}}
+\index{addBidirectionalEdge@{addBidirectionalEdge}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalEdge()}{addBidirectionalEdge()}}
+{\footnotesize\ttfamily bool Grafo\+::add\+Bidirectional\+Edge (\begin{DoxyParamCaption}\item[{const int \&}]{sourc,  }\item[{const int \&}]{dest,  }\item[{double}]{w,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Método que adiciona uma aresta bidirecional ao grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sourc} & Índice do vértice de origem \\
+\hline
+{\em dest} & Índice do vértice de destino \\
+\hline
+{\em w} & Peso da aresta \\
+\hline
+{\em type} & Tipo referente à aresta \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Se a aresta foi adicionada corretamente \\
+\hline
+{\em false} & Se a aresta não foi adicionada \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_grafo_a6ab64563ba34beff75795ad7b1eeb92f}\label{class_grafo_a6ab64563ba34beff75795ad7b1eeb92f}} 
+\index{Grafo@{Grafo}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily bool Grafo\+::add\+Edge (\begin{DoxyParamCaption}\item[{const int \&}]{sourc,  }\item[{const int \&}]{dest,  }\item[{double}]{w,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Método que adiciona uma aresta ao grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sourc} & Índice do vértice de origem \\
+\hline
+{\em dest} & Índice do vértice de destino \\
+\hline
+{\em w} & Peso da aresta \\
+\hline
+{\em type} & Tipo referente à aresta \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Se a aresta foi adicionada corretamente \\
+\hline
+{\em false} & Se a aresta não foi adicionada \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_grafo_aa8792314d596153cf3036694f1223ac1}\label{class_grafo_aa8792314d596153cf3036694f1223ac1}} 
+\index{Grafo@{Grafo}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily bool Grafo\+::add\+Vertex (\begin{DoxyParamCaption}\item[{const int \&}]{id,  }\item[{string \&}]{name,  }\item[{string \&}]{district,  }\item[{string \&}]{municipality,  }\item[{string \&}]{township,  }\item[{string \&}]{line }\end{DoxyParamCaption})}
+
+
+
+Método que adiciona um vértice ao grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id do vértice \\
+\hline
+{\em name} & Nome do vértice \\
+\hline
+{\em district} & Nome do distrito do vértice \\
+\hline
+{\em municipality} & Nome do município do vértice \\
+\hline
+{\em township} & Nome da freguesia do vértice \\
+\hline
+{\em line} & Nome da Linha do vértice \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Se o vértice foi adicionado corretamente \\
+\hline
+{\em false} & Se o vértice não foi adicionado \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_grafo_af12715bd6bb2ba2675f6dbed3fc77cb8}\label{class_grafo_af12715bd6bb2ba2675f6dbed3fc77cb8}} 
+\index{Grafo@{Grafo}!augmentFlowAlongPath@{augmentFlowAlongPath}}
+\index{augmentFlowAlongPath@{augmentFlowAlongPath}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{augmentFlowAlongPath()}{augmentFlowAlongPath()}}
+{\footnotesize\ttfamily void Grafo\+::augment\+Flow\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{t,  }\item[{double}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_grafo_a953ecb48d1ae4fd2494d853475d18c12}\label{class_grafo_a953ecb48d1ae4fd2494d853475d18c12}} 
+\index{Grafo@{Grafo}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
+{\footnotesize\ttfamily double Grafo\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{string}]{source,  }\item[{string}]{target }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_grafo_aa5080cb26ff0857346f7acb365d660f5}\label{class_grafo_aa5080cb26ff0857346f7acb365d660f5}} 
+\index{Grafo@{Grafo}!findAugmentingPath@{findAugmentingPath}}
+\index{findAugmentingPath@{findAugmentingPath}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}}
+{\footnotesize\ttfamily bool Grafo\+::find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_grafo_af0f3dc22043610f54de986943262be38}\label{class_grafo_af0f3dc22043610f54de986943262be38}} 
+\index{Grafo@{Grafo}!findMinResidualAlongPath@{findMinResidualAlongPath}}
+\index{findMinResidualAlongPath@{findMinResidualAlongPath}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{findMinResidualAlongPath()}{findMinResidualAlongPath()}}
+{\footnotesize\ttfamily double Grafo\+::find\+Min\+Residual\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_grafo_a860ae60d287d0ff4cfec1b1e15309ad0}\label{class_grafo_a860ae60d287d0ff4cfec1b1e15309ad0}} 
+\index{Grafo@{Grafo}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Grafo\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const int \&}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Método que encontra o vértice a partir do índice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Id do vértice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Índice correspondente ao nome do vértice 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grafo_a8b2c0d19ce2a94bec1fbbcc8087db638}\label{class_grafo_a8b2c0d19ce2a94bec1fbbcc8087db638}} 
+\index{Grafo@{Grafo}!findVertexIdName@{findVertexIdName}}
+\index{findVertexIdName@{findVertexIdName}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{findVertexIdName()}{findVertexIdName()}}
+{\footnotesize\ttfamily int Grafo\+::find\+Vertex\+Id\+Name (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Método que encontra o índice do vértice a partir do seu nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nome do vértice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Índice correspondente ao nome do vértice 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grafo_a78ede9d555626aed874951e61b4b3556}\label{class_grafo_a78ede9d555626aed874951e61b4b3556}} 
+\index{Grafo@{Grafo}!findVertexName@{findVertexName}}
+\index{findVertexName@{findVertexName}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{findVertexName()}{findVertexName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Grafo\+::find\+Vertex\+Name (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Método que encontra o vértice a partir do seu nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nome do vértice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vértice correspondente ao nome do vértice 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grafo_aad7bb3659eaba81591f287ad4c0bad40}\label{class_grafo_aad7bb3659eaba81591f287ad4c0bad40}} 
+\index{Grafo@{Grafo}!getNumVertex@{getNumVertex}}
+\index{getNumVertex@{getNumVertex}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{getNumVertex()}{getNumVertex()}}
+{\footnotesize\ttfamily int Grafo\+::get\+Num\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Método que obtém o número de vértices do grafo. 
+
+\begin{DoxyReturn}{Returns}
+O número de vértices existente no grafo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grafo_a75e399e3e151d4dff7379d391acddf5a}\label{class_grafo_a75e399e3e151d4dff7379d391acddf5a}} 
+\index{Grafo@{Grafo}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ Grafo\+::get\+Vertex\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Método que obtém os vértices do grafo. 
+
+\begin{DoxyReturn}{Returns}
+Um vetor com os vértices do grafo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grafo_abc539afa802f56058aa5c8bb5f2f7f30}\label{class_grafo_abc539afa802f56058aa5c8bb5f2f7f30}} 
+\index{Grafo@{Grafo}!testAndVisit@{testAndVisit}}
+\index{testAndVisit@{testAndVisit}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{testAndVisit()}{testAndVisit()}}
+{\footnotesize\ttfamily void Grafo\+::test\+And\+Visit (\begin{DoxyParamCaption}\item[{std\+::queue$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \&}]{q,  }\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{e,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{w,  }\item[{double}]{residual }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_grafo_a61e0b40e2994b7d008fa170c7c0bdb09}\label{class_grafo_a61e0b40e2994b7d008fa170c7c0bdb09}} 
+\index{Grafo@{Grafo}!distMatrix@{distMatrix}}
+\index{distMatrix@{distMatrix}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{distMatrix}{distMatrix}}
+{\footnotesize\ttfamily double$\ast$$\ast$ Grafo\+::dist\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_grafo_a44d794c56dae0556fc72554c255c7fc6}\label{class_grafo_a44d794c56dae0556fc72554c255c7fc6}} 
+\index{Grafo@{Grafo}!pathMatrix@{pathMatrix}}
+\index{pathMatrix@{pathMatrix}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{pathMatrix}{pathMatrix}}
+{\footnotesize\ttfamily int$\ast$$\ast$ Grafo\+::path\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_grafo_ab39e089a5a539e3d71a01543aa0014b9}\label{class_grafo_ab39e089a5a539e3d71a01543aa0014b9}} 
+\index{Grafo@{Grafo}!vertexSet@{vertexSet}}
+\index{vertexSet@{vertexSet}!Grafo@{Grafo}}
+\doxysubsubsection{\texorpdfstring{vertexSet}{vertexSet}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$$>$ Grafo\+::vertex\+Set\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_grafo_8h}{Grafo.\+h}}\item 
+\mbox{\hyperlink{_grafo_8cpp}{Grafo.\+cpp}}\end{DoxyCompactItemize}
