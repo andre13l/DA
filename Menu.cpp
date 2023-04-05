@@ -25,6 +25,8 @@ void Menu::showinitialMenu(){
         cout << "Escolha uma opcao de 1 a 2 ou 0 para sair:"<< endl;
         cout << "1  -- Documentos padrao (network.csv e stations.csv)" << endl;
         cout << "2  -- Outros documentos" << endl;
+        cout << "0  -- Sair" << endl;
+        cin >> k;
         while(!(k==0 || k == 1 || k == 2)){
             cout << "Introduza um dos valores pedidos (1 a 2 , ou 0 caso pretenda sair)" << endl;
             cin >> k;
@@ -129,10 +131,11 @@ void Menu::showMaxNTrainsSimultaneously(){
     std::string origin, destiny;
     while(1) {
         cout << "Digite o nome da estacao de origem: ";
-        cin >> origin;
+        cin.ignore();
+        getline(cin, origin);
         cout << "\nDigite o nome da estacao de destino: ";
-        cin >> destiny;
-        cout << "O numero maximo de comboios que podem viajar simultaneamente entre a estacao " << origin << "e a estacao " << destiny << " é " << service->maxNTrainsSimultaneously(origin, destiny) << endl;
+        getline(cin, destiny);
+        cout << "\nO numero maximo de comboios que podem viajar simultaneamente entre a estacao " << origin << "e a estacao " << destiny << " sao " << service->maxNTrainsSimultaneously(origin, destiny) << endl;
         cout << "0  -- Sair " << endl;
         cin >> k;
         while(k!=0){

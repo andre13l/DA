@@ -3,6 +3,8 @@
 //
 #include "ServiceMetrics.h"
 
+#include <utility>
+
 ServiceMetrics::ServiceMetrics(){
     this->graph = new Grafo("../stations.csv", "../network.csv");
 }
@@ -14,7 +16,7 @@ ServiceMetrics::ServiceMetrics(Grafo* grafo): graph(grafo){}
  * stations. Note that your implementation should take any valid source and destination stations as input;
  */
 int ServiceMetrics::maxNTrainsSimultaneously(std::string origin, std::string destiny){
-    return -1;
+    return graph->edmondsKarp(std::move(origin), std::move(destiny));
 }
 
 
