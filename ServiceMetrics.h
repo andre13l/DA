@@ -29,7 +29,7 @@ public:
      * @brief Método que determina, entre todos os pares de estações, aqueles que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente
      * @return Pares de estações
      **/
-    std::string pairsRequireMostTrains();
+    std::vector<std::string> pairsRequireMostTrains();
 
     /**
      * @brief Método que indica onde a administração deve atribuir maiores orçamentos para a compra e manutenção dos comboios

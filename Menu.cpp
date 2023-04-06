@@ -128,7 +128,7 @@ void Menu::showReliability(){
     }
 }
 
-// TODO
+
 void Menu::showMaxNTrainsSimultaneously(){
     int k;
     std::string origin, destiny;
@@ -150,13 +150,13 @@ void Menu::showMaxNTrainsSimultaneously(){
 }
 
 
-//TODO
 void Menu::showPairsRequiredMostTrains(){
+    vector<string> pairs = service->pairsRequireMostTrains();
     int k;
     while(1) {
-        cout << "Os pares de estacoes que requerem mais comboios aproveitar o maximo de capacidade da rede existente sao:"<< endl;
-        for (int i=0; i<service->pairsRequireMostTrains().size(); i++){
-            cout << service->pairsRequireMostTrains()[i] << endl;
+        cout << "Os pares de estacoes que requerem mais comboios para aproveitar o maximo de capacidade da rede existente tem a capacidade de " << pairs[0] << " e sao os seguintes:" << endl;
+        for (int i=1; i < pairs.size(); i++){
+            cout << pairs[i] << endl;
         }
         cout << "0  -- Sair" << endl;
         cin >> k;

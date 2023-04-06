@@ -199,7 +199,7 @@ public:
      **/
     void setFlow(double flow);
 protected:
-    Vertex * dest; // destination vertex
+    Vertex *dest; // destination vertex
     double weight; // edge weight, can also be used for capacity
     std::string type;
 
