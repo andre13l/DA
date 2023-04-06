@@ -99,6 +99,12 @@ public:
      * @return Um vetor com os vértices do grafo
      **/
     std::vector<Vertex *> getVertexSet() const;
+    vector<string> getMunicipies();
+    vector<string> getDistricts();
+    vector<Vertex*> getMunStations(string &municipy);
+    vector<Vertex*> getDistStations(string &district);
+    int findMunCapacity(string &municipy);
+    int findDisCapacity(string &district);
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall

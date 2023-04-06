@@ -198,6 +198,80 @@ double Grafo::edmondsKarp(string source, string target) {
     return maxFlow;
 }
 
+vector<string> Grafo::getMunicipies(){
+    vector<string> municipies = {};
+    for(auto i:vertexSet){
+        bool isduplicate=false;
+        for(auto j:municipies){
+            if(i->getMunicipality()==j){
+                isduplicate= true;
+                break;
+            }
+        }
+        if(!isduplicate){
+            municipies.push_back(i->getMunicipality());
+        }
+    }
+    return municipies;
+}
+
+vector<string> Grafo::getDistricts(){
+    vector<string> districts={};
+    for(auto i:vertexSet){
+        bool isduplicate=false;
+        for(auto j:districts){
+            if(i->getDistrict()==j){
+                isduplicate= true;
+                break;
+            }
+        }
+        if(!isduplicate){
+            districts.push_back(i->getMunicipality());
+        }
+    }
+    return districts;
+}
+
+vector<Vertex*> Grafo::getMunStations(string &municipy){
+    vector<Vertex*>a={};
+    for(auto i:vertexSet){
+        if(i->getMunicipality()==municipy)
+            a.push_back(i);
+    }
+    return a;
+}
+
+vector<Vertex*> Grafo::getDistStations(string &district){
+    vector<Vertex*>a={};
+    for(auto i:vertexSet){
+        if(i->getMunicipality()==district)
+            a.push_back(i);
+    }
+    return a;
+}
+
+int Grafo::findMunCapacity(string &municipy){
+    int cap=0;
+    vector<Vertex*>a = getMunStations(municipy);
+    for(int i=0;i<a.size();i++){
+        for(auto j:a[i]->getAdj()){
+            cap+=j->getWeight();
+        }
+    }
+    return cap;
+}
+
+int Grafo::findDisCapacity(string &district){
+    int cap=0;
+    vector<Vertex*>a = getDistStations(district);
+    for(int i=0;i<a.size();i++){
+        for(auto j:a[i]->getAdj()){
+            cap+=j->getWeight();
+        }
+    }
+    return cap;
+}
+
 Grafo::~Grafo() {
     deleteMatrix(distMatrix, vertexSet.size());
     deleteMatrix(pathMatrix, vertexSet.size());

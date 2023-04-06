@@ -59,7 +59,7 @@ void Menu::showMenu(){
     int k;
     while(1) {
         cout << "Escolha uma opcao de 1 a 3 ou 0 para sair:"<< endl;
-        cout << "1  -- Servicos Basicos de Metrica" << endl;
+        cout << "1  -- Métricas Basicas de Servico" << endl;
         cout << "2  -- Otimizacao" << endl;
         cout << "3  -- Confiabilidade e Sensibilidade a Falhas na Linha" << endl;
         cout << "0  -- Sair" << endl;
