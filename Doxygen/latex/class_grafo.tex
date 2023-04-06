@@ -29,7 +29,7 @@ bool \mbox{\hyperlink{class_grafo_a6ab64563ba34beff75795ad7b1eeb92f}{add\+Edge}}
 bool \mbox{\hyperlink{class_grafo_a255d0be94cb45fdd43e486671042df5a}{add\+Bidirectional\+Edge}} (const int \&sourc, const int \&dest, double w, std\+::string type)
 \begin{DoxyCompactList}\small\item\em Método que adiciona uma aresta bidirecional ao grafo. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_grafo_a953ecb48d1ae4fd2494d853475d18c12}{edmonds\+Karp}} (string source, string target)
-\item 
+\begin{DoxyCompactList}\small\item\em Método que utiliza o método de Edmonds-\/\+Karp para encontrar os augmentation paths e o fluxo máximo. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_grafo_aad7bb3659eaba81591f287ad4c0bad40}{get\+Num\+Vertex}} () const
 \begin{DoxyCompactList}\small\item\em Método que obtém o número de vértices do grafo. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_grafo_a75e399e3e151d4dff7379d391acddf5a}{get\+Vertex\+Set}} () const
@@ -38,13 +38,13 @@ std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyper
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_grafo_abc539afa802f56058aa5c8bb5f2f7f30}{test\+And\+Visit}} (std\+::queue$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \&q, \mbox{\hyperlink{class_edge}{Edge}} $\ast$e, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$w, double residual)
-\item 
+\begin{DoxyCompactList}\small\item\em Método para marcar o vértice como visitado. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_grafo_aa5080cb26ff0857346f7acb365d660f5}{find\+Augmenting\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$s, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$t)
-\item 
+\begin{DoxyCompactList}\small\item\em Método para descobrir o Augmenting Path. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_grafo_af0f3dc22043610f54de986943262be38}{find\+Min\+Residual\+Along\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$s, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$t)
-\item 
+\begin{DoxyCompactList}\small\item\em Método para descobrir o fluxo residual mínimo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_grafo_af12715bd6bb2ba2675f6dbed3fc77cb8}{augment\+Flow\+Along\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$s, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$t, double f)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Método para definir o fluxo residual ao longo do algoritmo. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -169,24 +169,83 @@ Método que adiciona um vértice ao grafo.
 \doxysubsubsection{\texorpdfstring{augmentFlowAlongPath()}{augmentFlowAlongPath()}}
 {\footnotesize\ttfamily void Grafo\+::augment\+Flow\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{t,  }\item[{double}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Método para definir o fluxo residual ao longo do algoritmo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Vértice de origem \\
+\hline
+{\em t} & Vértice de destino \\
+\hline
+{\em f} & Fluxo residual \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_grafo_a953ecb48d1ae4fd2494d853475d18c12}\label{class_grafo_a953ecb48d1ae4fd2494d853475d18c12}} 
 \index{Grafo@{Grafo}!edmondsKarp@{edmondsKarp}}
 \index{edmondsKarp@{edmondsKarp}!Grafo@{Grafo}}
 \doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
 {\footnotesize\ttfamily double Grafo\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{string}]{source,  }\item[{string}]{target }\end{DoxyParamCaption})}
 
+
+
+Método que utiliza o método de Edmonds-\/\+Karp para encontrar os augmentation paths e o fluxo máximo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Nome do vértice de origem \\
+\hline
+{\em target} & Nome do vértice de destino \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O fluxo máximo 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_grafo_aa5080cb26ff0857346f7acb365d660f5}\label{class_grafo_aa5080cb26ff0857346f7acb365d660f5}} 
 \index{Grafo@{Grafo}!findAugmentingPath@{findAugmentingPath}}
 \index{findAugmentingPath@{findAugmentingPath}!Grafo@{Grafo}}
 \doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}}
 {\footnotesize\ttfamily bool Grafo\+::find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Método para descobrir o Augmenting Path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Vértice de origem \\
+\hline
+{\em t} & Vértice de destino \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Quando o vértice de destino é visitado \\
+\hline
+{\em false} & Quando o vértice de destino ainda não foi visitado \\
+\hline
+\end{DoxyRetVals}
 \mbox{\Hypertarget{class_grafo_af0f3dc22043610f54de986943262be38}\label{class_grafo_af0f3dc22043610f54de986943262be38}} 
 \index{Grafo@{Grafo}!findMinResidualAlongPath@{findMinResidualAlongPath}}
 \index{findMinResidualAlongPath@{findMinResidualAlongPath}!Grafo@{Grafo}}
 \doxysubsubsection{\texorpdfstring{findMinResidualAlongPath()}{findMinResidualAlongPath()}}
 {\footnotesize\ttfamily double Grafo\+::find\+Min\+Residual\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Método para descobrir o fluxo residual mínimo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Vértice de origem \\
+\hline
+{\em t} & Vértice de destino \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Número do fluxo residual mínimo 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_grafo_a860ae60d287d0ff4cfec1b1e15309ad0}\label{class_grafo_a860ae60d287d0ff4cfec1b1e15309ad0}} 
 \index{Grafo@{Grafo}!findVertex@{findVertex}}
 \index{findVertex@{findVertex}!Grafo@{Grafo}}
@@ -273,6 +332,21 @@ Um vetor com os vértices do grafo
 \doxysubsubsection{\texorpdfstring{testAndVisit()}{testAndVisit()}}
 {\footnotesize\ttfamily void Grafo\+::test\+And\+Visit (\begin{DoxyParamCaption}\item[{std\+::queue$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \&}]{q,  }\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{e,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{w,  }\item[{double}]{residual }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Método para marcar o vértice como visitado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Queue de vértices \\
+\hline
+{\em e} & Aresta \\
+\hline
+{\em w} & Vértice \\
+\hline
+{\em residual} & Fluxo Residual \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}

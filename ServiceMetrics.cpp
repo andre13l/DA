@@ -17,7 +17,7 @@ ServiceMetrics::ServiceMetrics(Grafo* grafo): graph(grafo){}
 
 
 int ServiceMetrics::maxNTrainsSimultaneously(std::string origin, std::string destiny){
-    return graph->edmondsKarp(std::move(origin), std::move(destiny));
+    return int(graph->edmondsKarp(std::move(origin), std::move(destiny)));
 }
 
 std::vector<std::string> ServiceMetrics::pairsRequireMostTrains(){

@@ -21,13 +21,17 @@ public:
      * @brief Método que calcula o número máximo de comboios que podem viajar simultaneamente entre duas estações específicas
      * @param origin Nome da estação de origem
      * @param destiny Nome da estação de destino
+     * @section Time_Complexity Complexidade Temporal
+     * Utiliza o Algoritmo de Ford-Fulkerson & Edmonds-Karp, pelo que tem a complexidade temporal de O(F*E), onde F é o fluxo
      * @return Número máximo de comboios que podem viajar simultaneamente entre duas estações específicas
      **/
     int maxNTrainsSimultaneously(std::string origin, std::string destiny);
 
     /**
      * @brief Método que determina, entre todos os pares de estações, aqueles que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente
-     * @return Pares de estações
+     * @section Time_Complexity Complexidade Temporal
+     * Utiliza uma complexidade temporal de O(V*E)
+     * @return Vetor com a capacidade máxima, no início, seguida dos pares de estações
      **/
     std::vector<std::string> pairsRequireMostTrains();
 
@@ -40,6 +44,8 @@ public:
     /**
      * @brief Método que reporta o número máximo de comboios que conseguem chegar simultaneamente a uma estação indicada
      * @param station Nome da estação pretendida
+     * @section Time_Complexity Complexidade Temporal
+     * Utiliza uma complexidade temporal de O(E)
      * @return Número de comboios que conseguem chegar simultaneamente à estação
      * **/
     int maxNTrainsArriving(std::string station);

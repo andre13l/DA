@@ -35,28 +35,25 @@
 \DoxyCodeLine{00071\ }
 \DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_grafo_a255d0be94cb45fdd43e486671042df5a}{addBidirectionalEdge}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&sourc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&dest,\ \textcolor{keywordtype}{double}\ w,\ std::string\ type);}
 \DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//TODO}}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_grafo_a953ecb48d1ae4fd2494d853475d18c12}{edmondsKarp}}(\textcolor{keywordtype}{string}\ source,\ \textcolor{keywordtype}{string}\ target);}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_grafo_aad7bb3659eaba81591f287ad4c0bad40}{getNumVertex}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00096\ \ \ \ \ std::vector<Vertex\ *>\ \mbox{\hyperlink{class_grafo_a75e399e3e151d4dff7379d391acddf5a}{getVertexSet}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00097\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00098\ \ \ \ \ std::vector<Vertex\ *>\ \mbox{\hyperlink{class_grafo_ab39e089a5a539e3d71a01543aa0014b9}{vertexSet}};\ \ \ \ \textcolor{comment}{//\ vertex\ set}}
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{double}\ **\ \mbox{\hyperlink{class_grafo_a61e0b40e2994b7d008fa170c7c0bdb09}{distMatrix}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \textcolor{comment}{//\ dist\ matrix\ for\ Floyd-\/Warshall}}
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ **\mbox{\hyperlink{class_grafo_a44d794c56dae0556fc72554c255c7fc6}{pathMatrix}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \textcolor{comment}{//\ path\ matrix\ for\ Floyd-\/Warshall}}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//TODO}}
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_grafo_abc539afa802f56058aa5c8bb5f2f7f30}{testAndVisit}}(std::queue<\ Vertex*>\ \&q,\ \mbox{\hyperlink{class_edge}{Edge}}\ *e,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *w,\ \textcolor{keywordtype}{double}\ residual);}
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_grafo_aa5080cb26ff0857346f7acb365d660f5}{findAugmentingPath}}(\mbox{\hyperlink{class_vertex}{Vertex}}\ *s,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *t);}
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_grafo_af0f3dc22043610f54de986943262be38}{findMinResidualAlongPath}}(\mbox{\hyperlink{class_vertex}{Vertex}}\ *s,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *t);}
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_grafo_af12715bd6bb2ba2675f6dbed3fc77cb8}{augmentFlowAlongPath}}(\mbox{\hyperlink{class_vertex}{Vertex}}\ *s,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *t,\ \textcolor{keywordtype}{double}\ f);}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \};}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_grafo_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{int}\ **m,\ \textcolor{keywordtype}{int}\ n);}
-\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_grafo_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{double}\ **m,\ \textcolor{keywordtype}{int}\ n);}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DA\_PROJ1\_GRAFO\_H}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_grafo_a953ecb48d1ae4fd2494d853475d18c12}{edmondsKarp}}(\textcolor{keywordtype}{string}\ source,\ \textcolor{keywordtype}{string}\ target);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_grafo_aad7bb3659eaba81591f287ad4c0bad40}{getNumVertex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ std::vector<Vertex\ *>\ \mbox{\hyperlink{class_grafo_a75e399e3e151d4dff7379d391acddf5a}{getVertexSet}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00102\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<Vertex\ *>\ \mbox{\hyperlink{class_grafo_ab39e089a5a539e3d71a01543aa0014b9}{vertexSet}};\ \ \ \ \textcolor{comment}{//\ vertex\ set}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{double}\ **\ \mbox{\hyperlink{class_grafo_a61e0b40e2994b7d008fa170c7c0bdb09}{distMatrix}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \textcolor{comment}{//\ dist\ matrix\ for\ Floyd-\/Warshall}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ **\mbox{\hyperlink{class_grafo_a44d794c56dae0556fc72554c255c7fc6}{pathMatrix}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \textcolor{comment}{//\ path\ matrix\ for\ Floyd-\/Warshall}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_grafo_abc539afa802f56058aa5c8bb5f2f7f30}{testAndVisit}}(std::queue<\ Vertex*>\ \&q,\ \mbox{\hyperlink{class_edge}{Edge}}\ *e,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *w,\ \textcolor{keywordtype}{double}\ residual);}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_grafo_aa5080cb26ff0857346f7acb365d660f5}{findAugmentingPath}}(\mbox{\hyperlink{class_vertex}{Vertex}}\ *s,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *t);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_grafo_af0f3dc22043610f54de986943262be38}{findMinResidualAlongPath}}(\mbox{\hyperlink{class_vertex}{Vertex}}\ *s,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *t);}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_grafo_af12715bd6bb2ba2675f6dbed3fc77cb8}{augmentFlowAlongPath}}(\mbox{\hyperlink{class_vertex}{Vertex}}\ *s,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *t,\ \textcolor{keywordtype}{double}\ f);}
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_grafo_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{int}\ **m,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_grafo_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{double}\ **m,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DA\_PROJ1\_GRAFO\_H}}
 
 \end{DoxyCode}

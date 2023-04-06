@@ -4,6 +4,12 @@
  * @brief Implementação da função main
  *********************************************************************/
 
+/** @mainpage DA2023_PRJ1_G09_6
+ * @authors Ana Sofia Oliveira Teixeira
+ * @authors André Moreira Leal Leonor
+ * @authors Luis Guilherme de Melo Félix Diogo
+ **/
+
 #include "Menu.h"
 using namespace std;
 

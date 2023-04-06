@@ -17,27 +17,27 @@ Classe relativa ao menu.
 \mbox{\hyperlink{class_menu_a53e8f7f80c626ad03a18d473d8ab7c64}{Menu}} (\mbox{\hyperlink{class_service_metrics}{Service\+Metrics}} $\ast$servico)
 \item 
 void \mbox{\hyperlink{class_menu_aa2a95a5b95590caa9795f5f96039f308}{showinitial\+Menu}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} para escolher os ficheiros que vão construir o grafo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_ab19f32f8deac0f6c6960f04be8612067}{show\+Menu}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} principal para escolher entre serviços básicos de métrica, otimização ou confiabilidade e sensibilidade a falhas na linha. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_a1d63e428688fe59b538e4c2868e505d5}{show\+Optimization}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} relativo à otimização. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_a6fb43727397b2c299cd7b47d4c135180}{show\+Basic}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} relativo aos serviços básicos de métrica. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_a88905c4a8ca4b367b0457d415ed86708}{show\+Reliability}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} relativo à confiabilidade e sensibilidade a falhas na linha. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_a18b7ad19f5f4501be89bb27610a4d832}{show\+Max\+NTrains\+Simultaneously}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} para mostrar o número máximo de comboios que podem viajar simultaneamente entre duas estações escolhidas pelo utilizador. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_ae565859ba3225ec4ddbe1ee97ad5f2f7}{show\+Pairs\+Required\+Most\+Trains}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} para mostrar os pares que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_a83763bb76405a86dbc7ca60ebe828859}{show\+Larger\+Budget}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} para mostrar onde a administração deve atribuir maiores orçamentos para a compra e manutenção dos comboios. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_a1e13e0c91ac01cb21184ad5e450c4ec3}{show\+Max\+NTrains\+Arriving}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_menu}{Menu}} para mostrar o número máximo de comboios que conseguem chegar simultaneamente a uma estação indicada pelo utilizador. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_service_metrics}{Service\+Metrics}} $\ast$ \mbox{\hyperlink{class_menu_aa3207c2a777e984a87011c05f7a19dac}{get\+Service}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Método que obtém o Service\+Metric. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_ac686fc17dcc375ec8f4479ac349c272e}{set\+Service}} (\mbox{\hyperlink{class_service_metrics}{Service\+Metrics}} $\ast$\mbox{\hyperlink{class_menu_a1109521ad86cc2978fdf09d0be207489}{service}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Método que define o service do menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,17 +70,37 @@ Classe relativa ao menu.
 \doxysubsubsection{\texorpdfstring{getService()}{getService()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_service_metrics}{Service\+Metrics}} $\ast$ Menu\+::get\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Método que obtém o Service\+Metric. 
+
+\begin{DoxyReturn}{Returns}
+Objeto da classe Service\+Metric correspondente 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_menu_ac686fc17dcc375ec8f4479ac349c272e}\label{class_menu_ac686fc17dcc375ec8f4479ac349c272e}} 
 \index{Menu@{Menu}!setService@{setService}}
 \index{setService@{setService}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{setService()}{setService()}}
 {\footnotesize\ttfamily void Menu\+::set\+Service (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_service_metrics}{Service\+Metrics}} $\ast$}]{service }\end{DoxyParamCaption})}
 
+
+
+Método que define o service do menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Service\+Metric que o menu vai adotar \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_menu_a6fb43727397b2c299cd7b47d4c135180}\label{class_menu_a6fb43727397b2c299cd7b47d4c135180}} 
 \index{Menu@{Menu}!showBasic@{showBasic}}
 \index{showBasic@{showBasic}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{showBasic()}{showBasic()}}
 {\footnotesize\ttfamily void Menu\+::show\+Basic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_menu}{Menu}} relativo aos serviços básicos de métrica. 
 
 \mbox{\Hypertarget{class_menu_aa2a95a5b95590caa9795f5f96039f308}\label{class_menu_aa2a95a5b95590caa9795f5f96039f308}} 
 \index{Menu@{Menu}!showinitialMenu@{showinitialMenu}}
@@ -88,11 +108,19 @@ Classe relativa ao menu.
 \doxysubsubsection{\texorpdfstring{showinitialMenu()}{showinitialMenu()}}
 {\footnotesize\ttfamily void Menu\+::showinitial\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+\mbox{\hyperlink{class_menu}{Menu}} para escolher os ficheiros que vão construir o grafo. 
+
 \mbox{\Hypertarget{class_menu_a83763bb76405a86dbc7ca60ebe828859}\label{class_menu_a83763bb76405a86dbc7ca60ebe828859}} 
 \index{Menu@{Menu}!showLargerBudget@{showLargerBudget}}
 \index{showLargerBudget@{showLargerBudget}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{showLargerBudget()}{showLargerBudget()}}
 {\footnotesize\ttfamily void Menu\+::show\+Larger\+Budget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_menu}{Menu}} para mostrar onde a administração deve atribuir maiores orçamentos para a compra e manutenção dos comboios. 
 
 \mbox{\Hypertarget{class_menu_a1e13e0c91ac01cb21184ad5e450c4ec3}\label{class_menu_a1e13e0c91ac01cb21184ad5e450c4ec3}} 
 \index{Menu@{Menu}!showMaxNTrainsArriving@{showMaxNTrainsArriving}}
@@ -100,11 +128,19 @@ Classe relativa ao menu.
 \doxysubsubsection{\texorpdfstring{showMaxNTrainsArriving()}{showMaxNTrainsArriving()}}
 {\footnotesize\ttfamily void Menu\+::show\+Max\+NTrains\+Arriving (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+\mbox{\hyperlink{class_menu}{Menu}} para mostrar o número máximo de comboios que conseguem chegar simultaneamente a uma estação indicada pelo utilizador. 
+
 \mbox{\Hypertarget{class_menu_a18b7ad19f5f4501be89bb27610a4d832}\label{class_menu_a18b7ad19f5f4501be89bb27610a4d832}} 
 \index{Menu@{Menu}!showMaxNTrainsSimultaneously@{showMaxNTrainsSimultaneously}}
 \index{showMaxNTrainsSimultaneously@{showMaxNTrainsSimultaneously}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{showMaxNTrainsSimultaneously()}{showMaxNTrainsSimultaneously()}}
 {\footnotesize\ttfamily void Menu\+::show\+Max\+NTrains\+Simultaneously (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_menu}{Menu}} para mostrar o número máximo de comboios que podem viajar simultaneamente entre duas estações escolhidas pelo utilizador. 
 
 \mbox{\Hypertarget{class_menu_ab19f32f8deac0f6c6960f04be8612067}\label{class_menu_ab19f32f8deac0f6c6960f04be8612067}} 
 \index{Menu@{Menu}!showMenu@{showMenu}}
@@ -112,11 +148,19 @@ Classe relativa ao menu.
 \doxysubsubsection{\texorpdfstring{showMenu()}{showMenu()}}
 {\footnotesize\ttfamily void Menu\+::show\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+\mbox{\hyperlink{class_menu}{Menu}} principal para escolher entre serviços básicos de métrica, otimização ou confiabilidade e sensibilidade a falhas na linha. 
+
 \mbox{\Hypertarget{class_menu_a1d63e428688fe59b538e4c2868e505d5}\label{class_menu_a1d63e428688fe59b538e4c2868e505d5}} 
 \index{Menu@{Menu}!showOptimization@{showOptimization}}
 \index{showOptimization@{showOptimization}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{showOptimization()}{showOptimization()}}
 {\footnotesize\ttfamily void Menu\+::show\+Optimization (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_menu}{Menu}} relativo à otimização. 
 
 \mbox{\Hypertarget{class_menu_ae565859ba3225ec4ddbe1ee97ad5f2f7}\label{class_menu_ae565859ba3225ec4ddbe1ee97ad5f2f7}} 
 \index{Menu@{Menu}!showPairsRequiredMostTrains@{showPairsRequiredMostTrains}}
@@ -124,11 +168,19 @@ Classe relativa ao menu.
 \doxysubsubsection{\texorpdfstring{showPairsRequiredMostTrains()}{showPairsRequiredMostTrains()}}
 {\footnotesize\ttfamily void Menu\+::show\+Pairs\+Required\+Most\+Trains (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+\mbox{\hyperlink{class_menu}{Menu}} para mostrar os pares que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente. 
+
 \mbox{\Hypertarget{class_menu_a88905c4a8ca4b367b0457d415ed86708}\label{class_menu_a88905c4a8ca4b367b0457d415ed86708}} 
 \index{Menu@{Menu}!showReliability@{showReliability}}
 \index{showReliability@{showReliability}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{showReliability()}{showReliability()}}
 {\footnotesize\ttfamily void Menu\+::show\+Reliability (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_menu}{Menu}} relativo à confiabilidade e sensibilidade a falhas na linha. 
 
 
 

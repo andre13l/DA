@@ -108,6 +108,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a255d0be94cb45fdd43e486671042df5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que adiciona uma aresta bidirecional ao grafo.  <br /></td></tr>
 <tr class="separator:a255d0be94cb45fdd43e486671042df5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a953ecb48d1ae4fd2494d853475d18c12"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grafo.html#a953ecb48d1ae4fd2494d853475d18c12">edmondsKarp</a> (string source, string target)</td></tr>
+<tr class="memdesc:a953ecb48d1ae4fd2494d853475d18c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que utiliza o método de Edmonds-Karp para encontrar os augmentation paths e o fluxo máximo.  <br /></td></tr>
 <tr class="separator:a953ecb48d1ae4fd2494d853475d18c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad7bb3659eaba81591f287ad4c0bad40"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grafo.html#aad7bb3659eaba81591f287ad4c0bad40">getNumVertex</a> () const</td></tr>
 <tr class="memdesc:aad7bb3659eaba81591f287ad4c0bad40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que obtém o número de vértices do grafo.  <br /></td></tr>
@@ -119,12 +120,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:abc539afa802f56058aa5c8bb5f2f7f30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grafo.html#abc539afa802f56058aa5c8bb5f2f7f30">testAndVisit</a> (std::queue&lt; <a class="el" href="class_vertex.html">Vertex</a> * &gt; &amp;q, <a class="el" href="class_edge.html">Edge</a> *e, <a class="el" href="class_vertex.html">Vertex</a> *w, double residual)</td></tr>
+<tr class="memdesc:abc539afa802f56058aa5c8bb5f2f7f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para marcar o vértice como visitado.  <br /></td></tr>
 <tr class="separator:abc539afa802f56058aa5c8bb5f2f7f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5080cb26ff0857346f7acb365d660f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grafo.html#aa5080cb26ff0857346f7acb365d660f5">findAugmentingPath</a> (<a class="el" href="class_vertex.html">Vertex</a> *s, <a class="el" href="class_vertex.html">Vertex</a> *t)</td></tr>
+<tr class="memdesc:aa5080cb26ff0857346f7acb365d660f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para descobrir o Augmenting Path.  <br /></td></tr>
 <tr class="separator:aa5080cb26ff0857346f7acb365d660f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0f3dc22043610f54de986943262be38"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grafo.html#af0f3dc22043610f54de986943262be38">findMinResidualAlongPath</a> (<a class="el" href="class_vertex.html">Vertex</a> *s, <a class="el" href="class_vertex.html">Vertex</a> *t)</td></tr>
+<tr class="memdesc:af0f3dc22043610f54de986943262be38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para descobrir o fluxo residual mínimo.  <br /></td></tr>
 <tr class="separator:af0f3dc22043610f54de986943262be38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af12715bd6bb2ba2675f6dbed3fc77cb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grafo.html#af12715bd6bb2ba2675f6dbed3fc77cb8">augmentFlowAlongPath</a> (<a class="el" href="class_vertex.html">Vertex</a> *s, <a class="el" href="class_vertex.html">Vertex</a> *t, double f)</td></tr>
+<tr class="memdesc:af12715bd6bb2ba2675f6dbed3fc77cb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para definir o fluxo residual ao longo do algoritmo.  <br /></td></tr>
 <tr class="separator:af12715bd6bb2ba2675f6dbed3fc77cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -413,6 +418,16 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Método para definir o fluxo residual ao longo do algoritmo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Vértice de origem </td></tr>
+    <tr><td class="paramname">t</td><td>Vértice de destino </td></tr>
+    <tr><td class="paramname">f</td><td>Fluxo residual </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a953ecb48d1ae4fd2494d853475d18c12" name="a953ecb48d1ae4fd2494d853475d18c12"></a>
@@ -440,6 +455,16 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Método que utiliza o método de Edmonds-Karp para encontrar os augmentation paths e o fluxo máximo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>Nome do vértice de origem </td></tr>
+    <tr><td class="paramname">target</td><td>Nome do vértice de destino </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>O fluxo máximo </dd></dl>
 
 </div>
 </div>
@@ -477,6 +502,22 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Método para descobrir o Augmenting Path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Vértice de origem </td></tr>
+    <tr><td class="paramname">t</td><td>Vértice de destino </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>Quando o vértice de destino é visitado </td></tr>
+    <tr><td class="paramname">false</td><td>Quando o vértice de destino ainda não foi visitado </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af0f3dc22043610f54de986943262be38" name="af0f3dc22043610f54de986943262be38"></a>
@@ -512,6 +553,16 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Método para descobrir o fluxo residual mínimo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Vértice de origem </td></tr>
+    <tr><td class="paramname">t</td><td>Vértice de destino </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Número do fluxo residual mínimo </dd></dl>
 
 </div>
 </div>
@@ -681,6 +732,17 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Método para marcar o vértice como visitado. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>Queue de vértices </td></tr>
+    <tr><td class="paramname">e</td><td>Aresta </td></tr>
+    <tr><td class="paramname">w</td><td>Vértice </td></tr>
+    <tr><td class="paramname">residual</td><td>Fluxo Residual </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

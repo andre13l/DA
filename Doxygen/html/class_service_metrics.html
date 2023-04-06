@@ -91,9 +91,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4cd1ec7160b493026a3d0b09225dd93b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_service_metrics.html#a4cd1ec7160b493026a3d0b09225dd93b">maxNTrainsSimultaneously</a> (std::string origin, std::string destiny)</td></tr>
 <tr class="memdesc:a4cd1ec7160b493026a3d0b09225dd93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que calcula o número máximo de comboios que podem viajar simultaneamente entre duas estações específicas.  <br /></td></tr>
 <tr class="separator:a4cd1ec7160b493026a3d0b09225dd93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab156604a1a6e5606c9a9d5403ebebb6a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_service_metrics.html#ab156604a1a6e5606c9a9d5403ebebb6a">pairsRequireMostTrains</a> ()</td></tr>
-<tr class="memdesc:ab156604a1a6e5606c9a9d5403ebebb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que determina, entre todos os pares de estações, aqueles que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente.  <br /></td></tr>
-<tr class="separator:ab156604a1a6e5606c9a9d5403ebebb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312d17887bacce87f227185be0dc3f2f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_service_metrics.html#a312d17887bacce87f227185be0dc3f2f">pairsRequireMostTrains</a> ()</td></tr>
+<tr class="memdesc:a312d17887bacce87f227185be0dc3f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que determina, entre todos os pares de estações, aqueles que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente.  <br /></td></tr>
+<tr class="separator:a312d17887bacce87f227185be0dc3f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33c31c6728eb0a0c962dd728ebb96920"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_service_metrics.html#a33c31c6728eb0a0c962dd728ebb96920">largerBudget</a> ()</td></tr>
 <tr class="memdesc:a33c31c6728eb0a0c962dd728ebb96920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que indica onde a administração deve atribuir maiores orçamentos para a compra e manutenção dos comboios.  <br /></td></tr>
 <tr class="separator:a33c31c6728eb0a0c962dd728ebb96920"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +188,9 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Número de comboios que conseguem chegar simultaneamente à estação </dd></dl>
+<h1><a class="anchor" id="Time_Complexity"></a>
+Complexidade Temporal</h1>
+<p>Utiliza uma complexidade temporal de O(E) </p><dl class="section return"><dt>Returns</dt><dd>Número de comboios que conseguem chegar simultaneamente à estação </dd></dl>
 
 </div>
 </div>
@@ -226,18 +228,20 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Número máximo de comboios que podem viajar simultaneamente entre duas estações específicas </dd></dl>
+<h1><a class="anchor" id="Time_Complexity"></a>
+Complexidade Temporal</h1>
+<p>Utiliza o Algoritmo de Ford-Fulkerson &amp; Edmonds-Karp, pelo que tem a complexidade temporal de O(F*E), onde F é o fluxo </p><dl class="section return"><dt>Returns</dt><dd>Número máximo de comboios que podem viajar simultaneamente entre duas estações específicas </dd></dl>
 
 </div>
 </div>
-<a id="ab156604a1a6e5606c9a9d5403ebebb6a" name="ab156604a1a6e5606c9a9d5403ebebb6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab156604a1a6e5606c9a9d5403ebebb6a">&#9670;&#160;</a></span>pairsRequireMostTrains()</h2>
+<a id="a312d17887bacce87f227185be0dc3f2f" name="a312d17887bacce87f227185be0dc3f2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a312d17887bacce87f227185be0dc3f2f">&#9670;&#160;</a></span>pairsRequireMostTrains()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string ServiceMetrics::pairsRequireMostTrains </td>
+          <td class="memname">std::vector&lt; std::string &gt; ServiceMetrics::pairsRequireMostTrains </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -246,7 +250,9 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Método que determina, entre todos os pares de estações, aqueles que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pares de estações </dd></dl>
+<h1><a class="anchor" id="Time_Complexity"></a>
+Complexidade Temporal</h1>
+<p>Utiliza uma complexidade temporal de O(V*E) </p><dl class="section return"><dt>Returns</dt><dd>Vetor com a capacidade máxima, no início, seguida dos pares de estações </dd></dl>
 
 </div>
 </div>
