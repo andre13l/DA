@@ -59,7 +59,7 @@ void Menu::showMenu(){
     int k;
     while(1) {
         cout << "Escolha uma opcao de 1 a 3 ou 0 para sair:"<< endl;
-        cout << "1  -- Métricas Basicas de Servico" << endl;
+        cout << "1  -- Metricas Basicas de Servico" << endl;
         cout << "2  -- Otimizacao" << endl;
         cout << "3  -- Confiabilidade e Sensibilidade a Falhas na Linha" << endl;
         cout << "0  -- Sair" << endl;
@@ -99,14 +99,27 @@ void Menu::showBasic(){
         }
     }
 }
+
 void Menu::showOptimization() {
-    int k=1;
-    cin >> k;
-    while(k!=0){
-        cout << "Pressione 0 para sair" << endl;
+    int k;
+    std::string origin, destiny;
+    while(1) {
+        cout << "Digite o nome da estacao de origem: ";
+        cin.ignore();
+        getline(cin, origin);
+        cout << "\nDigite o nome da estacao de destino: ";
+        getline(cin, destiny);
+        cout << "\nO numero maximo de comboios que podem viajar simultaneamente entre a estacao " << origin << "e a estacao " << destiny << " com o menor custo sao " << service->optimization(origin, destiny) << endl;
+        cout << "0  -- Sair " << endl;
         cin >> k;
+        while(k!=0){
+            cout << "Introduza 0 para sair" << endl;
+            cin >> k;
+        }
+        return;
     }
 }
+
 void Menu::showReliability(){
     int k;
     while(1) {
@@ -168,8 +181,6 @@ void Menu::showPairsRequiredMostTrains(){
     }
 }
 
-
-//TODO
 void Menu::showLargerBudget(){
     int k, q;
     while(1) {
@@ -177,7 +188,7 @@ void Menu::showLargerBudget(){
         cin >> q;
         cout << "O top-" << q << " de municipios e distritos que a administracao deve destinar maiores orcamentos para a compra e manutencao de comboios sao:" << endl;
         for (int i=0; i<q; i++){
-            cout << service->largerBudget()[i] << endl;
+            cout << i+1<< " Municipio: " << service->largerBudget()[i].first << " "<<i+1<< " Distrito:" << service->largerBudget()[i].second << endl;
         }
         cout << "0  -- Sair " << endl;
         cin >> k;

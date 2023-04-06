@@ -105,6 +105,7 @@ public:
     vector<Vertex*> getDistStations(string &district);
     int findMunCapacity(string &municipy);
     int findDisCapacity(string &district);
+    double edmondsKarpOptm(string source, string target);
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
@@ -140,6 +141,9 @@ protected:
      * @param f Fluxo residual
      **/
     void augmentFlowAlongPath(Vertex *s, Vertex *t, double f);
+    bool findAugmentingPathOptm(Vertex *s, Vertex *t, double c);
+    double findMinResidualAlongPathOptm(Vertex *s, Vertex *t, double c);
+    void augmentFlowAlongPathOptm(Vertex *s, Vertex *t, double f, double c);
 };
 
 void deleteMatrix(int **m, int n);

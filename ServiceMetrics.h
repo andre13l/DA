@@ -7,6 +7,7 @@
 #ifndef DA_PROJ1_SERVICEMETRICS_H
 #define DA_PROJ1_SERVICEMETRICS_H
 #include <string>
+#include <algorithm>
 #include "Grafo.h"
 
 /**
@@ -39,7 +40,7 @@ public:
      * @brief Método que indica onde a administração deve atribuir maiores orçamentos para a compra e manutenção dos comboios
      * @return Municípios e Distritos com maior necessidade de investimento
      **/
-    std::string largerBudget();
+    std::vector<pair<string,string>> largerBudget();
 
     /**
      * @brief Método que reporta o número máximo de comboios que conseguem chegar simultaneamente a uma estação indicada
@@ -47,8 +48,18 @@ public:
      * @section Time_Complexity Complexidade Temporal
      * Utiliza uma complexidade temporal de O(E)
      * @return Número de comboios que conseguem chegar simultaneamente à estação
-     * **/
+     **/
     int maxNTrainsArriving(std::string station);
+
+    /**
+     * @brief Método que calcula o número máximo de comboios que podem viajar simultaneamente entre duas estações específicas com o menor custo
+     * @param origin Nome da estação de origem
+     * @param destiny Nome da estação de destino
+     * @section Time_Complexity Complexidade Temporal
+     * Utiliza uma complexidade temporal de //TODO
+     * @return Número máximo de comboios que podem viajar simultaneamente entre duas estações específicas com o menor custo
+     **/
+    int optimization(std::string origin, std::string destiny);
 protected:
     Grafo* graph;
 };

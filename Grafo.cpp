@@ -244,7 +244,7 @@ vector<Vertex*> Grafo::getMunStations(string &municipy){
 vector<Vertex*> Grafo::getDistStations(string &district){
     vector<Vertex*>a={};
     for(auto i:vertexSet){
-        if(i->getMunicipality()==district)
+        if(i->getDistrict()==district)
             a.push_back(i);
     }
     return a;
@@ -270,6 +270,81 @@ int Grafo::findDisCapacity(string &district){
         }
     }
     return cap;
+}
+
+bool Grafo::findAugmentingPathOptm(Vertex *s, Vertex *t, double c) {
+    for(auto v : vertexSet) {
+        v->setVisited(false);
+    }
+    s->setVisited(true);
+    std::queue<Vertex *> q;
+    q.push(s);
+    while( ! q.empty() && ! t->isVisited()) {
+        auto v = q.front();
+        q.pop();
+        for(auto e: v->getAdj()) {
+            testAndVisit(q, e, e->getDest(), e->getWeight() - e->getFlow());
+        }
+        for(auto e: v->getIncoming()) {
+            testAndVisit(q, e, e->getOrig(), e->getFlow());
+        }
+    }
+    return t->isVisited();
+}
+
+double Grafo::findMinResidualAlongPathOptm(Vertex *s, Vertex *t, double c) {
+    double f = INF;
+    for (auto v = t; v != s; ) {
+        auto e = v->getPath();
+        if (e->getDest() == v) {
+            f = std::min(f, e->getWeight() - e->getFlow());
+            v = e->getOrig();
+        }
+        else {
+            f = std::min(f, e->getFlow());
+            v = e->getDest();
+        }
+    }
+    return f;
+}
+
+void Grafo::augmentFlowAlongPathOptm(Vertex *s, Vertex *t, double f, double c) {
+    for (auto v = t; v != s; ) {
+        auto e = v->getPath();
+        double flow = e->getFlow();
+        if (e->getDest() == v) {
+            e->setFlow(flow + f);
+            v = e->getOrig();
+        }
+        else {
+            e->setFlow(flow - f);
+            v = e->getDest();
+        }
+    }
+}
+
+double Grafo::edmondsKarpOptm(string source, string target) {
+    Vertex* s = findVertexName(source);
+    Vertex* t = findVertexName(target);
+    if (s == nullptr || t == nullptr || s == t)
+        throw std::logic_error("Invalid source and/or target vertex");
+    // Reset the flows
+    for (auto v : vertexSet) {
+        for (auto e: v->getAdj()) {
+            e->setFlow(0);
+        }
+    }
+    // Loop to find augmentation paths and maximumFlow
+    double maxFlow = 0;
+    double minCost = 0;
+    double c = 0;
+    while( findAugmentingPathOptm(s, t, c) ) {
+        double f = findMinResidualAlongPathOptm(s, t, c);
+        maxFlow += f;
+        //minCost = f*;
+        augmentFlowAlongPathOptm(s, t, f, c);
+    }
+    return minCost;
 }
 
 Grafo::~Grafo() {

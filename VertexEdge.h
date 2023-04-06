@@ -184,6 +184,11 @@ public:
      **/
     double getFlow() const;
     /**
+     * @brief Método que obtém o custo
+     * @return Custo
+     **/
+    int getCost() const;
+    /**
      * @brief Método que define se a aresta é selecionada ou não
      * @param selected true para selecionar a aresta e false para não selecionar a aresta
      **/
@@ -198,10 +203,16 @@ public:
      * @param flow Fluxo
      **/
     void setFlow(double flow);
+    /**
+     * @brief Método que define o custo
+     * @param cost Custo
+     **/
+    void setCost(int cost);
 protected:
     Vertex *dest; // destination vertex
     double weight; // edge weight, can also be used for capacity
     std::string type;
+    int cost;
 
     // auxiliary fields
     bool selected = false;

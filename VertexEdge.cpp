@@ -10,10 +10,6 @@
 
 Vertex::Vertex(int id, std::string name, std::string district, std::string municipality, std::string township, std::string line): id(id), name(name), district(district), municipality(municipality), township(township), line(line) {}
 
-/*
- * Auxiliary function to add an outgoing edge to a vertex (this),
- * with a given destination vertex (d) and edge weight (w).
- */
 Edge * Vertex::addEdge(Vertex *d, double w, std::string type) {
     auto newEdge = new Edge(this, d, w, type);
     adj.push_back(newEdge);
@@ -21,11 +17,6 @@ Edge * Vertex::addEdge(Vertex *d, double w, std::string type) {
     return newEdge;
 }
 
-/*
- * Auxiliary function to remove an outgoing edge (with a given destination (d))
- * from a vertex (this).
- * Returns true if successful, and false if such edge does not exist.
- */
 bool Vertex::removeEdge(int destID) {
     bool removedEdge = false;
     auto it = adj.begin();
@@ -44,9 +35,6 @@ bool Vertex::removeEdge(int destID) {
     return removedEdge;
 }
 
-/*
- * Auxiliary function to remove an outgoing edge of a vertex.
- */
 void Vertex::removeOutgoingEdges() {
     auto it = adj.begin();
     while (it != adj.end()) {
@@ -130,7 +118,12 @@ void Vertex::deleteEdge(Edge *edge) {
 
 /********************** Edge  ****************************/
 
-Edge::Edge(Vertex *orig, Vertex *dest, double w, std::string type): orig(orig), dest(dest), weight(w), type(type) {}
+Edge::Edge(Vertex *orig, Vertex *dest, double w, std::string type): orig(orig), dest(dest), weight(w), type(type) {
+    if (type == "STANDARD")
+        cost = 2;
+    else if (type == "ALFA PENDULAR")
+        cost = 4;
+}
 
 Vertex * Edge::getDest() const {
     return this->dest;
@@ -160,6 +153,11 @@ double Edge::getFlow() const {
     return flow;
 }
 
+int Edge::getCost() const {
+    return cost;
+}
+
+
 void Edge::setSelected(bool selected) {
     this->selected = selected;
 }
@@ -170,4 +168,8 @@ void Edge::setReverse(Edge *reverse) {
 
 void Edge::setFlow(double flow) {
     this->flow = flow;
+}
+
+void Edge::setCost(int cost) {
+    this->cost = cost;
 }

@@ -48,8 +48,30 @@ std::vector<std::string> ServiceMetrics::pairsRequireMostTrains(){
 }
 
 //TODO
-std::string ServiceMetrics::largerBudget(){
-    return NULL;
+bool cmp(const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
+    return a.second > b.second; // Sort in ascending order based on the int value
+}
+
+std::vector<pair<string,string>> ServiceMetrics::largerBudget(){
+    int maxcap;
+    vector<pair<string,int>> mun;
+    vector<pair<string,int>> dist;
+    vector<pair<string,string>> solution;
+    for(auto i:graph->getMunicipies()){
+        maxcap=graph->findMunCapacity(i);
+        mun.push_back(make_pair(i,maxcap));
+    }
+    sort(mun.begin(),mun.end(),cmp);
+    for(auto i:graph->getDistricts()){
+        maxcap=graph->findDisCapacity(i);
+        dist.push_back(make_pair(i,maxcap));
+    }
+    sort(dist.begin(),dist.end(),cmp);
+    for(int i=0;i<dist.size();i++){
+        solution.push_back(make_pair(mun[i].first,dist[i].first));
+    }
+
+    return solution;
 }
 
 int ServiceMetrics::maxNTrainsArriving(std::string station){
@@ -59,4 +81,9 @@ int ServiceMetrics::maxNTrainsArriving(std::string station){
         if (edge->getWeight() > maxCap)
             maxCap = int(edge->getWeight());
     return maxCap;
+}
+
+//TODO
+int ServiceMetrics::optimization(std::string origin, std::string destiny){
+    return -1;
 }
