@@ -84,6 +84,12 @@ int ServiceMetrics::maxNTrainsArriving(std::string station){
 }
 
 //TODO
+int ServiceMetrics::maxNTrainsReducedConnect(std::string origin, std::string destiny) {
+
+    return int(graph->edmondsKarp(std::move(origin), std::move(destiny)));
+}
+
+//TODO
 int ServiceMetrics::optimization(std::string origin, std::string destiny){
     return -1;
 }

@@ -133,9 +133,8 @@ void Menu::showReliability(){
             cin >> k;
         }
         switch (k) {
-            /*case 1:showBasic(); break;
+            case 1:showMaxNTrainsSimultaneously(); break;
             case 2:showOptimization(); break;
-            case 3:showReliability();break;*/
             case 0: return;
         }
     }
