@@ -70,8 +70,15 @@ public:
      * @return Número máximo de comboios que podem viajar simultaneamente entre duas estações específicas com o menor custo
      **/
     int optimization(std::string origin, std::string destiny);
+    /**
+     * @brief Create a reduced graph of the original one
+     * @details Complexity: O(VE²)
+     * return Graph
+     */
+    Grafo* createReducedGraph();
 protected:
     Grafo* graph;
+
 };
 
 #endif //DA_PROJ1_SERVICEMETRICS_H

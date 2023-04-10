@@ -78,6 +78,30 @@ bool Grafo::addVertex(const int &id, string &name, string &district, string &mun
     return true;
 }
 
+
+bool Grafo::removeVertex(const string &name) {
+    Vertex* v = findVertexName(name);
+    if (v == nullptr) {
+        return false;
+    }
+
+    for (auto e : v->getAdj()) {
+        auto w = e->getDest();
+        w->removeEdge(v->getId());
+        v->removeEdge(w->getId());
+    }
+
+    for (auto it = vertexSet.begin(); it != vertexSet.end(); it++) {
+        if ((*it)->getName() == name){
+            vertexSet.erase(it);
+            break;
+        }
+    }
+
+    delete v;
+    return true;
+}
+
 bool Grafo::addEdge(const int &sourc, const int &dest, double w, string type) {
     auto v1= findVertex(sourc);
     auto v2= findVertex(dest);

@@ -83,10 +83,42 @@ int ServiceMetrics::maxNTrainsArriving(std::string station){
     return maxCap;
 }
 
+Grafo* ServiceMetrics::createReducedGraph() {
+    Grafo* reduced_graph=graph;
+    std::string opt = "n";
+
+    std::cout << "Do you want to remove a station? (y/N): ";
+    getline(std::cin, opt);
+
+    bool remove_stations = false;
+    if (opt[0] == 'y' || opt[0] == 'Y') {
+        remove_stations = true;
+    }
+
+    while (remove_stations) {
+        std::cout << "Insert the name of the station you want to remove: ";
+        std::string station_name;
+        getline(std::cin, station_name);
+
+        if (!(*reduced_graph).removeVertex(station_name)) {
+            std::cout << "Invalid station!\n";
+        }
+
+        opt = "n";
+        std::cout << "Want to remove another station? (y/N): ";
+        getline(std::cin, opt);
+
+        if (opt[0] == 'n' || opt[0] == 'N') {
+            break;
+        }
+    }
+    return reduced_graph;
+}
+
 //TODO
 int ServiceMetrics::maxNTrainsReducedConnect(std::string origin, std::string destiny) {
-
-    return int(graph->edmondsKarp(std::move(origin), std::move(destiny)));
+    Grafo* gr=createReducedGraph();
+    return int(gr->edmondsKarp(std::move(origin), std::move(destiny)));
 }
 
 //TODO

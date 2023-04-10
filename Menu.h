@@ -43,6 +43,11 @@ public:
      * @brief Menu para mostrar o número máximo de comboios que podem viajar simultaneamente entre duas estações escolhidas pelo utilizador
      **/
     void showMaxNTrainsSimultaneously();
+
+    /**
+    * @brief Menu para mostrar o número máximo de comboios que podem viajar simultaneamente entre duas estações escolhidas pelo utilizador, havendo estações que nao devem se ser consideradas
+    **/
+    void showMaxNTrainsReduced();
     /**
      * @brief Menu para mostrar os pares que requerem a maior quantidade de comboios para aproveitar a máxima capacidade da rede ferroviária existente
      **/

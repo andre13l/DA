@@ -43,7 +43,7 @@ public:
      * @param name Nome do vértice
      * @return Vértice correspondente ao nome do vértice
      **/
-    Vertex *findVertexName(const string &name) const;
+    Vertex* findVertexName(const string &name) const;
 
     /**
      * @brief Método que adiciona um vértice ao grafo
@@ -57,6 +57,14 @@ public:
      * @retval false Se o vértice não foi adicionado
      **/
     bool addVertex(const int &id, string &name, string &district, string &municipality, string &township, string &line);
+
+    /**
+     * @brief Remove a vertex from the graph
+     * @param name nome do vértice
+     * @return true Se o vértice foi removido corretamente
+     * @retval false Se o vértice não foi removido
+     */
+    bool removeVertex(const string &id);
 
     /**
      * @brief Método que adiciona uma aresta ao grafo
