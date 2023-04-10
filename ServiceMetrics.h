@@ -53,13 +53,11 @@ public:
 
     /**
     * @brief Método que calcula o número máximo de comboios que podem viajar simultaneamente entre duas estações específicas
-    * @param origin Nome da estação de origem
-    * @param destiny Nome da estação de destino
     * @section Time_Complexity Complexidade Temporal
     * Utiliza o Algoritmo de Ford-Fulkerson & Edmonds-Karp, pelo que tem a complexidade temporal de O(F*E), onde F é o fluxo
     * @return Número máximo de comboios que podem viajar simultaneamente entre duas estações específicas
     **/
-    int maxNTrainsReducedConnect(std::string origin, std::string destiny);
+    int maxNTrainsReducedConnect();
 
     /**
      * @brief Método que calcula o número máximo de comboios que podem viajar simultaneamente entre duas estações específicas com o menor custo

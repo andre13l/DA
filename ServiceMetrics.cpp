@@ -86,27 +86,29 @@ int ServiceMetrics::maxNTrainsArriving(std::string station){
 Grafo* ServiceMetrics::createReducedGraph() {
     Grafo* reduced_graph=graph;
     std::string opt = "n";
-
-    std::cout << "Do you want to remove a station? (y/N): ";
-    getline(std::cin, opt);
-
-    bool remove_stations = false;
-    if (opt[0] == 'y' || opt[0] == 'Y') {
-        remove_stations = true;
+    bool remove=false;
+    while (1){
+        std::cout << "\nDo you want to remove a station? (y/N): ";
+        cin>>opt;
+        if (opt[0] == 'y' || opt[0] == 'Y') {
+            remove= true;
+            break;
+        }
+        else if(opt[0] == 'n' || opt[0] == 'N')
+            break;
     }
 
-    while (remove_stations) {
-        std::cout << "Insert the name of the station you want to remove: ";
+    while (remove) {
+        std::cout << "Insert the name of the station you want to remove: \n";
         std::string station_name;
-        getline(std::cin, station_name);
+        cin>>station_name;
 
         if (!(*reduced_graph).removeVertex(station_name)) {
             std::cout << "Invalid station!\n";
         }
-
         opt = "n";
-        std::cout << "Want to remove another station? (y/N): ";
-        getline(std::cin, opt);
+        std::cout << "Want to remove another station? (y/N): \n";
+        cin>>opt;
 
         if (opt[0] == 'n' || opt[0] == 'N') {
             break;
@@ -116,8 +118,27 @@ Grafo* ServiceMetrics::createReducedGraph() {
 }
 
 //TODO
-int ServiceMetrics::maxNTrainsReducedConnect(std::string origin, std::string destiny) {
+int ServiceMetrics::maxNTrainsReducedConnect() {
+    int k;
+    string origin;
+    string destiny;
     Grafo* gr=createReducedGraph();
+    while(1) {
+        cout << "Digite o nome da estacao de origem: ";
+        cin.ignore();
+        getline(cin, origin);
+        cout << "\nDigite o nome da estacao de destino: ";
+        getline(cin, destiny);
+        cout << "\nO numero maximo de comboios que podem viajar simultaneamente entre a estacao " << origin << "e a estacao " << destiny << " sao " << gr->edmondsKarp(origin, destiny) << endl;
+        cout << "0  -- Sair " << endl;
+        cin >> k;
+        while(k!=0){
+            cout << "Introduza 0 para sair" << endl;
+            cin >> k;
+        }
+        break;
+    }
+
     return int(gr->edmondsKarp(std::move(origin), std::move(destiny)));
 }
 

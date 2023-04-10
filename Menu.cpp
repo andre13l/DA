@@ -133,32 +133,13 @@ void Menu::showReliability(){
             cin >> k;
         }
         switch (k) {
-            case 1:showMaxNTrainsReduced(); break;
+            case 1:service->maxNTrainsReducedConnect(); break;
             case 2:showOptimization(); break;
             case 0: return;
         }
     }
 }
 
-void Menu::showMaxNTrainsReduced() {
-    int k;
-    std::string origin, destiny;
-    while(1) {
-        cout << "Digite o nome da estacao de origem: ";
-        cin.ignore();
-        getline(cin, origin);
-        cout << "\nDigite o nome da estacao de destino: ";
-        getline(cin, destiny);
-        cout << "\nO numero maximo de comboios que podem viajar simultaneamente entre a estacao " << origin << "e a estacao " << destiny << " sao " << service->maxNTrainsReducedConnect(origin, destiny) << endl;
-        cout << "0  -- Sair " << endl;
-        cin >> k;
-        while(k!=0){
-            cout << "Introduza 0 para sair" << endl;
-            cin >> k;
-        }
-        return;
-    }
-}
 void Menu::showMaxNTrainsSimultaneously(){
     int k;
     std::string origin, destiny;
