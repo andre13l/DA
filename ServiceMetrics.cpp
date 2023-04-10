@@ -103,8 +103,9 @@ Grafo* ServiceMetrics::createReducedGraph() {
         std::string station_name;
         cin>>station_name;
 
-        if (!(*reduced_graph).removeVertex(station_name)) {
-            std::cout << "Invalid station!\n";
+        while (!(*reduced_graph).removeVertex(station_name)) {
+            std::cout << "Invalid station!\n" << "Insert another station name\n";
+            cin>>station_name;
         }
         opt = "n";
         std::cout << "Want to remove another station? (y/N): \n";
