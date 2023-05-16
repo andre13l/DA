@@ -1,0 +1,3 @@
+C:/Users/anaso/Documents/FEUP/DA/DA/PROJ_2/cmake-build-debug/CMakeFiles/DA_PROJ1.dir
+C:/Users/anaso/Documents/FEUP/DA/DA/PROJ_2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/anaso/Documents/FEUP/DA/DA/PROJ_2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
