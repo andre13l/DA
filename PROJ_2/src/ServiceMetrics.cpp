@@ -11,6 +11,9 @@
 
 ServiceMetrics::ServiceMetrics(Grafo* grafo): graph(grafo){}
 
+Grafo* ServiceMetrics::getGraph() {return graph;}
+
+
 void tspBTRec(const unsigned int dists, unsigned int n, unsigned int curIndex, unsigned int curDist, unsigned int curPath[], unsigned int &minDist, unsigned int path[]) {
     if(curIndex == n) {
         // add the distance back to the initial node

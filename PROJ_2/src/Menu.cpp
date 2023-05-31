@@ -7,10 +7,6 @@
 
 #include "Menu.h"
 
-Menu::Menu(){
-    service = new ServiceMetrics();
-}
-
 Menu::Menu(ServiceMetrics* servico): service(servico) {}
 
 void Menu::setService(ServiceMetrics* service){
@@ -239,10 +235,13 @@ void Menu::showHeuristic(){
         }
     }
 }
+
 void Menu::showBacktrack(){
     int k;
     while(1) {
-        cout << "Backtracking: " << service->backtracking() << endl;
+        int n = service->getGraph()->getNumVertex();
+        std::vector<int> v(n);
+        cout << "Backtracking: " << service->backtracking(service->getGraph()->getDists(), n, v) << endl;
         cout << "0  -- Sair " << endl;
         cin >> k;
         while(k!=0){

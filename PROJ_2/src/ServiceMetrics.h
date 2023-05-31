@@ -18,6 +18,7 @@ class ServiceMetrics{
 public:
     ServiceMetrics(Grafo* grafo);
     int backtracking(const unsigned int dists, unsigned int n, unsigned int path[]);
+    Grafo* getGraph();
 
 protected:
     Grafo* graph;

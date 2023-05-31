@@ -16,7 +16,6 @@ using namespace std;
  * **/
 class Menu {
 public:
-    Menu();
     Menu(ServiceMetrics* servico);
     /**
      * @brief Menu para escolher o tipo de grafo
