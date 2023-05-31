@@ -40,18 +40,17 @@ Grafo::Grafo(string nodes, string edges){
 }
 
 Grafo::Grafo(string database){
-    string linha, name, longt, lat;
+    string linha, origin, destiny, distance;
     int i = 0;
     fstream databaseFile (database, ios::in);
     if(databaseFile.is_open()) {
         getline(databaseFile, linha);
         while(getline(databaseFile, linha)) {
             stringstream str(linha);
-            getline(str, name, ',');
-            getline(str, longt, ',');
-            getline(str, lat, ',');
-            addVertex(i, name,longt, lat);
-            i++;
+            getline(str, origin, ',');
+            getline(str, destiny, ',');
+            getline(str, distance, ',');
+            addBidirectionalEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(distance));
         }
     } else
         cout<<"Could not open the stations' file\n";
