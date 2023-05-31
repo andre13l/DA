@@ -6,12 +6,14 @@
 
 #include "VertexEdge.h"
 
+#include <utility>
+
 /************************* Vertex  **************************/
 
-Vertex::Vertex(int id, std::string name, std::string district, std::string municipality, std::string township, std::string line): id(id), name(name), district(district), municipality(municipality), township(township), line(line) {}
+Vertex::Vertex(int id, std::string name, std::string longitude, std::string latitude): id(id), name(std::move(name)), longitude(std::move(longitude)), latitude(std::move(latitude)) {}
 
-Edge * Vertex::addEdge(Vertex *d, double w, std::string type) {
-    auto newEdge = new Edge(this, d, w, type);
+Edge * Vertex::addEdge(Vertex *d, double dist) {
+    auto newEdge = new Edge(this, d, dist);
     adj.push_back(newEdge);
     d->incoming.push_back(newEdge);
     return newEdge;
@@ -56,22 +58,13 @@ std::string Vertex::getName() const {
     return this->name;
 }
 
-std::string Vertex::getDistrict() const{
-    return this->district;
+std::string Vertex::getLongitude() const{
+    return this->longitude;
 }
 
-std::string Vertex::getMunicipality() const{
-    return this->municipality;
+std::string Vertex::getLatitude() const{
+    return this->latitude;
 }
-
-std::string Vertex::getTownship() const{
-    return this->township;
-}
-
-std::string Vertex::getLine() const{
-    return this->line;
-}
-
 
 std::vector<Edge*> Vertex::getAdj() const {
     return this->adj;
@@ -118,23 +111,14 @@ void Vertex::deleteEdge(Edge *edge) {
 
 /********************** Edge  ****************************/
 
-Edge::Edge(Vertex *orig, Vertex *dest, double w, std::string type): orig(orig), dest(dest), weight(w), type(type) {
-    if (type == "STANDARD")
-        cost = 2;
-    else if (type == "ALFA PENDULAR")
-        cost = 4;
-}
+Edge::Edge(Vertex *orig, Vertex *dest, double dist): orig(orig), dest(dest), distance(dist){}
 
 Vertex * Edge::getDest() const {
     return this->dest;
 }
 
-std::string Edge::getType() const {
-    return this->type;
-}
-
-double Edge::getWeight() const {
-    return this->weight;
+double Edge::getDistance() const {
+    return this->distance;
 }
 
 Vertex * Edge::getOrig() const {

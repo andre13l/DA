@@ -8,54 +8,49 @@
 
 Grafo::Grafo(string nodes, string edges){
     // Create Vertex with stations.csv file
-    string linha, name, district, municipality, township, line;
+    string linha, name, longt, lat;
     int i = 0;
-    fstream stationsFile (nodes, ios::in);
-    if(stationsFile.is_open()) {
-        getline(stationsFile, linha);
-        while(getline(stationsFile, linha)) {
+    fstream nodesFile (nodes, ios::in);
+    if(nodesFile.is_open()) {
+        getline(nodesFile, linha);
+        while(getline(nodesFile, linha)) {
             stringstream str(linha);
             getline(str, name, ',');
-            getline(str, district, ',');
-            getline(str, municipality, ',');
-            getline(str, township, ',');
-            getline(str, line, ',');
-            addVertex(i, name, district, municipality, township, line);
+            getline(str, longt, ',');
+            getline(str, lat, ',');
+            addVertex(i, name, longt, lat);
             i++;
         }
     } else
         cout<<"Could not open the stations' file\n";
     // Create Edges with network.csv file
-    string origin, destiny, weight, type;
-    fstream networkFile (edges, ios::in);
-    if(networkFile.is_open()) {
-        getline(networkFile, linha);
-        while(getline(networkFile, linha)) {
+    string origin, destiny, distance;
+    fstream edgesFile (edges, ios::in);
+    if(edgesFile.is_open()) {
+        getline(edgesFile, linha);
+        while(getline(edgesFile, linha)) {
             stringstream str(linha);
             getline(str, origin, ',');
             getline(str, destiny, ',');
-            getline(str, weight, ',');
-            getline(str, type, ',');
-            addBidirectionalEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(weight), type);
+            getline(str, distance, ',');
+            addBidirectionalEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(distance));
         }
     } else
         cout<<"Could not open the network's file\n";
 }
 
 Grafo::Grafo(string database){
-    string linha, name, district, municipality, township, line;
+    string linha, name, longt, lat;
     int i = 0;
-    fstream stationsFile (database, ios::in);
-    if(stationsFile.is_open()) {
-        getline(stationsFile, linha);
-        while(getline(stationsFile, linha)) {
+    fstream databaseFile (database, ios::in);
+    if(databaseFile.is_open()) {
+        getline(databaseFile, linha);
+        while(getline(databaseFile, linha)) {
             stringstream str(linha);
             getline(str, name, ',');
-            getline(str, district, ',');
-            getline(str, municipality, ',');
-            getline(str, township, ',');
-            getline(str, line, ',');
-            addVertex(i, name, district, municipality, township, line);
+            getline(str, longt, ',');
+            getline(str, lat, ',');
+            addVertex(i, name,longt, lat);
             i++;
         }
     } else
@@ -91,10 +86,10 @@ Vertex* Grafo::findVertexName(const string &name) const {
     return nullptr;
 }
 
-bool Grafo::addVertex(const int &id, string &name, string &district, string &municipality, string &township, string &line) {
+bool Grafo::addVertex(const int &id, string &name, string &longitude, string &latitude) {
     if (findVertex(id) != nullptr)
         return false;
-    vertexSet.push_back(new Vertex(id, name, district, municipality, township, line));
+    vertexSet.push_back(new Vertex(id, name, longitude, latitude));
     return true;
 }
 
@@ -122,22 +117,22 @@ bool Grafo::removeVertex(const string &name) {
     return true;
 }
 
-bool Grafo::addEdge(const int &sourc, const int &dest, double w, string type) {
+bool Grafo::addEdge(const int &sourc, const int &dest, double dist) {
     auto v1= findVertex(sourc);
     auto v2= findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
         return false;
-    v1->addEdge(v2, w, type);
+    v1->addEdge(v2, dist);
     return true;
 }
 
-bool Grafo::addBidirectionalEdge(const int &sourc, const int &dest, double w, string type) {
+bool Grafo::addBidirectionalEdge(const int &sourc, const int &dest, double dist) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
         return false;
-    auto e1 = v1->addEdge(v2, w, type);
-    auto e2 = v2->addEdge(v1, w, type);
+    auto e1 = v1->addEdge(v2, dist);
+    auto e2 = v2->addEdge(v1, dist);
     e1->setReverse(e2);
     e2->setReverse(e1);
     return true;
@@ -181,7 +176,7 @@ bool Grafo::findAugmentingPath(Vertex *s, Vertex *t) {
         auto v = q.front();
         q.pop();
         for(auto e: v->getAdj()) {
-            testAndVisit(q, e, e->getDest(), e->getWeight() - e->getFlow());
+            testAndVisit(q, e, e->getDest(), e->getDistance() - e->getFlow());
         }
         for(auto e: v->getIncoming()) {
             testAndVisit(q, e, e->getOrig(), e->getFlow());
@@ -195,7 +190,7 @@ double Grafo::findMinResidualAlongPath(Vertex *s, Vertex *t) {
     for (auto v = t; v != s; ) {
         auto e = v->getPath();
         if (e->getDest() == v) {
-            f = std::min(f, e->getWeight() - e->getFlow());
+            f = std::min(f, e->getDistance() - e->getFlow());
             v = e->getOrig();
         }
         else {
@@ -242,78 +237,56 @@ double Grafo::edmondsKarp(string source, string target) {
     return maxFlow;
 }
 
-vector<string> Grafo::getMunicipies(){
+vector<string> Grafo::getLongitudes() {
     vector<string> municipies = {};
     for(auto i:vertexSet){
         bool isduplicate=false;
         for(auto j:municipies){
-            if(i->getMunicipality()==j){
+            if(i->getLongitude()==j){
                 isduplicate= true;
                 break;
             }
         }
         if(!isduplicate){
-            municipies.push_back(i->getMunicipality());
+            municipies.push_back(i->getLongitude());
         }
     }
     return municipies;
 }
 
-vector<string> Grafo::getDistricts(){
+vector<string> Grafo::getLatitudes() {
     vector<string> districts={};
     for(auto i:vertexSet){
         bool isduplicate=false;
         for(auto j:districts){
-            if(i->getDistrict()==j){
+            if(i->getLatitude()==j){
                 isduplicate= true;
                 break;
             }
         }
         if(!isduplicate){
-            districts.push_back(i->getMunicipality());
+            districts.push_back(i->getLatitude());
         }
     }
     return districts;
 }
 
-vector<Vertex*> Grafo::getMunStations(string &municipy){
+vector<Vertex*> Grafo::getLongtNodes(string &longitude){
     vector<Vertex*>a={};
     for(auto i:vertexSet){
-        if(i->getMunicipality()==municipy)
+        if(i->getLongitude()==longitude)
             a.push_back(i);
     }
     return a;
 }
 
-vector<Vertex*> Grafo::getDistStations(string &district){
+vector<Vertex*> Grafo::getLatNodes(string &latitude){
     vector<Vertex*>a={};
     for(auto i:vertexSet){
-        if(i->getDistrict()==district)
+        if(i->getLatitude()==latitude)
             a.push_back(i);
     }
     return a;
-}
-
-int Grafo::findMunCapacity(string &municipy){
-    int cap=0;
-    vector<Vertex*>a = getMunStations(municipy);
-    for(int i=0;i<a.size();i++){
-        for(auto j:a[i]->getAdj()){
-            cap+=j->getWeight();
-        }
-    }
-    return cap;
-}
-
-int Grafo::findDisCapacity(string &district){
-    int cap=0;
-    vector<Vertex*>a = getDistStations(district);
-    for(int i=0;i<a.size();i++){
-        for(auto j:a[i]->getAdj()){
-            cap+=j->getWeight();
-        }
-    }
-    return cap;
 }
 
 bool Grafo::findAugmentingPathOptm(Vertex *s, Vertex *t, double c) {
@@ -327,7 +300,7 @@ bool Grafo::findAugmentingPathOptm(Vertex *s, Vertex *t, double c) {
         auto v = q.front();
         q.pop();
         for(auto e: v->getAdj()) {
-            testAndVisit(q, e, e->getDest(), e->getWeight() - e->getFlow());
+            testAndVisit(q, e, e->getDest(), e->getDistance() - e->getFlow());
         }
         for(auto e: v->getIncoming()) {
             testAndVisit(q, e, e->getOrig(), e->getFlow());
@@ -341,7 +314,7 @@ double Grafo::findMinResidualAlongPathOptm(Vertex *s, Vertex *t, double c) {
     for (auto v = t; v != s; ) {
         auto e = v->getPath();
         if (e->getDest() == v) {
-            f = std::min(f, e->getWeight() - e->getFlow());
+            f = std::min(f, e->getDistance() - e->getFlow());
             v = e->getOrig();
         }
         else {

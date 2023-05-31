@@ -27,7 +27,7 @@ class Edge;
  **/
 class Vertex {
 public:
-    Vertex(int id, std::string name, std::string district, std::string municipality, std::string township, std::string line);
+    Vertex(int id, std::string name, std::string longitude, std::string latitude);
     bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
 
     /**
@@ -41,20 +41,15 @@ public:
      **/
     std::string getName() const;
     /**
-     * @brief Método que obtém o distrito do vértice
-     * @return Distrito do vértice
+     * @brief Método que obtém a longitude do vértice
+     * @return Longitude do vértice
      **/
-    std::string getDistrict() const;
+    std::string getLongitude() const;
     /**
-     * @brief Método que obtém o município do vértice
-     * @return Município do vértice
+     * @brief Método que obtém a latitude do vértice
+     * @return Latitude do vértice
      **/
-    std::string getMunicipality() const;
-    /**
-     * @brief Método que obtém a freguesia do vértice
-     * @return Freguesia do vértice
-     **/
-    std::string getTownship() const;
+    std::string getLatitude() const;
     /**
      * @brief Método que obtém a linha do vértice
      * @return Linha do vértice
@@ -103,7 +98,7 @@ public:
      * @param type Tipo da aresta
      * @return Aresta criada
      **/
-    Edge * addEdge(Vertex *dest, double w, std::string type);
+    Edge * addEdge(Vertex *dest, double distance);
     /**
      * @brief Método para remover uma aresta
      * @param destID Id do vértice de destino
@@ -119,10 +114,8 @@ public:
 protected:
     int id;                // identifier
     std::string name;
-    std::string district;
-    std::string municipality;
-    std::string township;
-    std::string line;
+    std::string longitude;
+    std::string latitude;
     std::vector<Edge *> adj;  // outgoing edges
 
     // auxiliary fields
@@ -145,7 +138,7 @@ protected:
 
 class Edge {
 public:
-    Edge(Vertex *orig, Vertex *dest, double w, std::string type);
+    Edge(Vertex *orig, Vertex *dest, double dist);
 
     /**
      * @brief Método que obtém o vértice de destino
@@ -156,12 +149,7 @@ public:
      * @brief Método que obtém a capacidade da aresta
      * @return Capacidade da aresta
      **/
-    double getWeight() const;
-    /**
-     * @brief Método que obtém o tipo da aresta
-     * @return Tipo da aresta
-     **/
-    std::string getType() const;
+    double getDistance() const;
     /**
      * @brief Método para verificar que a aresta é selecionada ou não
      * @retval true Quando a aresta é selecionada
@@ -210,8 +198,7 @@ public:
     void setCost(int cost);
 protected:
     Vertex *dest; // destination vertex
-    double weight; // edge weight, can also be used for capacity
-    std::string type;
+    double distance; // edge weight, can also be used for capacity
     int cost;
 
     // auxiliary fields

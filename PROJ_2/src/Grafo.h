@@ -22,7 +22,7 @@ using namespace std;
 class Grafo{
 
 public:
-    Grafo(std::string stationsFilename, std::string networkFilename);
+    Grafo(std::string nodesFilename, std::string edgesFilename);
     Grafo(std::string databaseFilename);
     ~Grafo();
     /**
@@ -50,14 +50,12 @@ public:
      * @brief Método que adiciona um vértice ao grafo
      * @param id id do vértice
      * @param name Nome do vértice
-     * @param district Nome do distrito do vértice
-     * @param municipality Nome do município do vértice
-     * @param township Nome da freguesia do vértice
-     * @param line Nome da Linha do vértice
+     * @param longitude Longitude do vértice
+     * @param latitude Latitude do vértice
      * @retval true Se o vértice foi adicionado corretamente
      * @retval false Se o vértice não foi adicionado
      **/
-    bool addVertex(const int &id, string &name, string &district, string &municipality, string &township, string &line);
+    bool addVertex(const int &id, string &name, string &longitude, string &latitude);
 
     /**
      * @brief Remove a vertex from the graph
@@ -71,23 +69,21 @@ public:
      * @brief Método que adiciona uma aresta ao grafo
      * @param sourc Índice do vértice de origem
      * @param dest Índice do vértice de destino
-     * @param w Peso da aresta
-     * @param type Tipo referente à aresta
+     * @param dist Peso da aresta
      * @retval true Se a aresta foi adicionada corretamente
      * @retval false Se a aresta não foi adicionada
      **/
-    bool addEdge(const int &sourc, const int &dest, double w, std::string type);
+    bool addEdge(const int &sourc, const int &dest, double dist);
 
     /**
      * @brief Método que adiciona uma aresta bidirecional ao grafo
      * @param sourc Índice do vértice de origem
      * @param dest Índice do vértice de destino
-     * @param w Peso da aresta
-     * @param type Tipo referente à aresta
+     * @param dist Peso da aresta
      * @retval true Se a aresta foi adicionada corretamente
      * @retval false Se a aresta não foi adicionada
      **/
-    bool addBidirectionalEdge(const int &sourc, const int &dest, double w, std::string type);
+    bool addBidirectionalEdge(const int &sourc, const int &dest, double dist);
 
     /**
      * @brief Método que utiliza o método de Edmonds-Karp para encontrar os augmentation paths e o fluxo máximo
@@ -108,12 +104,10 @@ public:
      * @return Um vetor com os vértices do grafo
      **/
     std::vector<Vertex *> getVertexSet() const;
-    vector<string> getMunicipies();
-    vector<string> getDistricts();
-    vector<Vertex*> getMunStations(string &municipy);
-    vector<Vertex*> getDistStations(string &district);
-    int findMunCapacity(string &municipy);
-    int findDisCapacity(string &district);
+    vector<string> getLongitudes();
+    vector<string> getLatitudes();
+    vector<Vertex*> getLongtNodes(string &longitude);
+    vector<Vertex*> getLatNodes(string &latitude);
     double edmondsKarpOptm(string source, string target);
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set
