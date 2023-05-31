@@ -7,7 +7,7 @@
 #include "Grafo.h"
 
 Grafo::Grafo(string nodes, string edges){
-    // Create Vertex with stations.csv file
+    // Create Vertex with nodes.csv file
     string linha, name, longt, lat;
     int i = 0;
     fstream nodesFile (nodes, ios::in);
@@ -23,7 +23,7 @@ Grafo::Grafo(string nodes, string edges){
         }
     } else
         cout<<"Could not open the stations' file\n";
-    // Create Edges with network.csv file
+    // Create Edges with edges.csv file
     string origin, destiny, distance;
     fstream edgesFile (edges, ios::in);
     if(edgesFile.is_open()) {

@@ -242,7 +242,7 @@ void Menu::showHeuristic(){
 void Menu::showBacktrack(){
     int k;
     while(1) {
-        cout << "Backtracking: " << /*service->backtracking() <<*/ endl;
+        cout << "Backtracking: " << service->backtracking() << endl;
         cout << "0  -- Sair " << endl;
         cin >> k;
         while(k!=0){
