@@ -22,7 +22,7 @@ Grafo::Grafo(string nodes, string edges){
             i++;
         }
     } else
-        cout<<"Could not open the stations' file\n";
+        cout<<"Could not open the nodes' file\n";
     // Create Edges with edges.csv file
     string origin, destiny, distance;
     fstream edgesFile (edges, ios::in);
@@ -36,7 +36,7 @@ Grafo::Grafo(string nodes, string edges){
             addBidirectionalEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(distance));
         }
     } else
-        cout<<"Could not open the network's file\n";
+        cout<<"Could not open the edges' file\n";
 }
 
 Grafo::Grafo(string database){

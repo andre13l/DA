@@ -8,6 +8,7 @@
 #define DA_PROJ1_SERVICEMETRICS_H
 #include <string>
 #include <algorithm>
+#include <limits>
 #include "Grafo.h"
 
 /**
@@ -17,7 +18,8 @@
 class ServiceMetrics{
 public:
     ServiceMetrics(Grafo* grafo);
-    int backtracking(const unsigned int dists, unsigned int n, unsigned int path[]);
+    void tspBTRec(const unsigned int **dists, unsigned int n, unsigned int curIndex, unsigned int curDist, unsigned int curPath[], unsigned int &minDist, unsigned int path[]);
+    unsigned int backtracking(const unsigned int **dists, unsigned int n, unsigned int path[]);
     Grafo* getGraph();
 
 protected:
