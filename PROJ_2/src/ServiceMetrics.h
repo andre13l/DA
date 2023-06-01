@@ -18,8 +18,8 @@
 class ServiceMetrics{
 public:
     ServiceMetrics(Grafo* grafo);
-    void tspBTRec(const unsigned int **dists, unsigned int n, unsigned int curIndex, unsigned int curDist, unsigned int curPath[], unsigned int &minDist, unsigned int path[]);
-    unsigned int backtracking(const unsigned int **dists, unsigned int n, unsigned int path[]);
+    void tspBTRec(int **dists, unsigned int n, unsigned int curIndex, unsigned int curDist, unsigned int curPath[], unsigned int &minDist, unsigned int path[]);
+    unsigned int backtracking(int **dists, unsigned int n, unsigned int path[]);
     Grafo* getGraph();
 
 protected:

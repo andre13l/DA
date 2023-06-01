@@ -69,6 +69,31 @@ int Grafo::getDists(int v1, int v2) {
     return 0;
 }
 
+int** Grafo::getptr() {
+    int n = getNumVertex();
+    int** dists;
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            bool ti = false;
+            if(i==j){
+                dists[i][j]=0;
+            }
+            for(auto &e:vertexSet[i]->getAdj()){
+                if(e->getDest()->getId() == j){
+                    dists[i][j]= e->getDistance();
+                    ti = true;
+                }
+            }
+            if(!ti){
+                dists[i][j]=-1;
+            }
+        }
+    }
+    return dists;
+}
+
+
 double Grafo::getLati(int v) {
     return stoi(vertexSet[v]->getLatitude());
 }

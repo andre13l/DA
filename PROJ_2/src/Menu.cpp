@@ -6,18 +6,7 @@
 
 
 #include "Menu.h"
-
-Menu::Menu(ServiceMetrics* servico): service(servico) {}
-
-void Menu::setService(ServiceMetrics* service){
-    this->service = service;
-}
-
-ServiceMetrics* Menu::getService() {
-    return service;
-}
-
-void Menu::showinitialMenu(){
+Menu::Menu() {
     int k;
     while(1) {
         cout << "Escolha os documentos para inicializar: " << endl;
@@ -41,6 +30,16 @@ void Menu::showinitialMenu(){
         cin >> k;
     }
 }
+Menu::Menu(ServiceMetrics* servico): service(servico) {}
+
+void Menu::setService(ServiceMetrics* service){
+    this->service = service;
+}
+
+ServiceMetrics* Menu::getService() {
+    return service;
+}
+
 
 void Menu::showToyGraphMenu(){
     int k;
@@ -240,8 +239,16 @@ void Menu::showBacktrack(){
     int k;
     while(1) {
         int n = service->getGraph()->getNumVertex();
-        std::vector<int> v[n];
-        cout << "Backtracking: " << service->backtracking(service->getGraph()->getDists(), n, v) << endl;
+        unsigned int v[n];
+        /*const unsigned int n = 4;
+        const unsigned int dists[n][n] = {{0, 10, 15, 20}, {10, 0, 35, 25}, {15, 35, 0, 30}, {20, 25, 30, 0}};
+
+        // Convert 2D array to double pointer
+        auto **ptr = new const unsigned int*[n];
+        for (unsigned int i = 0; i < n; i++)
+            ptr[i] = dists[i];
+        unsigned int path[n];*/
+        cout << "Backtracking: " << service->backtracking(service->getGraph()->getptr(), n, v) << endl;
         cout << "0  -- Sair " << endl;
         cin >> k;
         while(k!=0){

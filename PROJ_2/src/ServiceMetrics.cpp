@@ -14,7 +14,7 @@ Grafo* ServiceMetrics::getGraph() {return graph;}
 
 
 
-void ServiceMetrics::tspBTRec(const unsigned int **dists, unsigned int n, unsigned int curIndex, unsigned int curDist, unsigned int curPath[], unsigned int &minDist, unsigned int path[]) {
+void ServiceMetrics::tspBTRec(int **dists, unsigned int n, unsigned int curIndex, unsigned int curDist, unsigned int curPath[], unsigned int &minDist, unsigned int path[]) {
     if(curIndex == n) {
         // add the distance back to the initial node
         curDist += dists[curPath[n - 1]][curPath[0]];
@@ -45,7 +45,7 @@ void ServiceMetrics::tspBTRec(const unsigned int **dists, unsigned int n, unsign
     }
 }
 
-unsigned int ServiceMetrics::backtracking(const unsigned int **dists, unsigned int n, unsigned int *path) {
+unsigned int ServiceMetrics::backtracking(int **dists, unsigned int n, unsigned int *path) {
     unsigned int curPath[10000]; // static memory allocation is faster :)
     unsigned int minDist = std::numeric_limits<unsigned int>::max();
 

@@ -106,6 +106,7 @@ public:
      int getDists(int v1, int v2);
      double getLati(int v);
      double getLongi(int v);
+     int **getptr();
     std::vector<Vertex *> getVertexSet() const;
     vector<string> getLongitudes();
     vector<string> getLatitudes();
