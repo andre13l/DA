@@ -240,7 +240,7 @@ void Menu::showBacktrack(){
     int k;
     while(1) {
         int n = service->getGraph()->getNumVertex();
-        std::vector<int> v(n);
+        std::vector<int> v[n];
         cout << "Backtracking: " << service->backtracking(service->getGraph()->getDists(), n, v) << endl;
         cout << "0  -- Sair " << endl;
         cin >> k;

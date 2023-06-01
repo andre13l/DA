@@ -41,7 +41,7 @@ Grafo::Grafo(string nodes, string edges){
 
 Grafo::Grafo(string database){
     string linha, origin, destiny, distance;
-    int i = 0;
+
     fstream databaseFile (database, ios::in);
     if(databaseFile.is_open()) {
         getline(databaseFile, linha);
@@ -58,6 +58,23 @@ Grafo::Grafo(string database){
 
 int Grafo::getNumVertex() const {
     return vertexSet.size();
+}
+
+int Grafo::getDists(int v1, int v2) {
+    for(auto &e:vertexSet[v1]->getAdj()){
+        if(e->getDest()->getId() == v2){
+            return e->getDistance();
+        }
+    }
+    return 0;
+}
+
+double Grafo::getLati(int v) {
+    return stoi(vertexSet[v]->getLatitude());
+}
+
+double Grafo::getLongi(int v) {
+    return stoi(vertexSet[v]->getLongitude());
 }
 
 std::vector<Vertex *> Grafo::getVertexSet() const {

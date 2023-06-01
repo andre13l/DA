@@ -103,6 +103,9 @@ public:
      * @brief Método que obtém os vértices do grafo
      * @return Um vetor com os vértices do grafo
      **/
+     int getDists(int v1, int v2);
+     double getLati(int v);
+     double getLongi(int v);
     std::vector<Vertex *> getVertexSet() const;
     vector<string> getLongitudes();
     vector<string> getLatitudes();
