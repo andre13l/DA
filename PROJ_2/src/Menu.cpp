@@ -45,6 +45,7 @@ void Menu::showinitialMenu(){
     }
 }
 
+
 void Menu::showToyGraphMenu(){
     int k;
     while(1) {

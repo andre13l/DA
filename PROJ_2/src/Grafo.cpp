@@ -85,7 +85,6 @@ double** Grafo::getDists() {
     }
     return dists;
 }
-
 std::vector<Vertex *> Grafo::getVertexSet() const {
     return vertexSet;
 }
