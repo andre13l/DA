@@ -58,6 +58,15 @@ public:
     bool addVertex(const int &id, string &name, string &longitude, string &latitude);
 
     /**
+     * @brief Método que adiciona um vértice ao grafo
+     * @param id id do vértice
+     * @param name Nome do vértice
+     * @retval true Se o vértice foi adicionado corretamente
+     * @retval false Se o vértice não foi adicionado
+     **/
+    bool addVertex(const int &id, const string &name);
+
+    /**
      * @brief Remove a vertex from the graph
      * @param name nome do vértice
      * @return true Se o vértice foi removido corretamente
@@ -86,32 +95,24 @@ public:
     bool addBidirectionalEdge(const int &sourc, const int &dest, double dist);
 
     /**
-     * @brief Método que utiliza o método de Edmonds-Karp para encontrar os augmentation paths e o fluxo máximo
-     * @param source Nome do vértice de origem
-     * @param target Nome do vértice de destino
-     * @return O fluxo máximo
-     **/
-    double edmondsKarp(string source, string target);
-
-    /**
      * @brief Método que obtém o número de vértices do grafo
      * @return O número de vértices existente no grafo
      **/
     int getNumVertex() const;
 
     /**
+     * @brief Método que obtém as distâncias que um vértice tem aos outros do grafo
+     * @return Um vetor com as distâncias que um vértice tem aos outros do grafo
+     **/
+    double** getDists();
+
+    void tspBTRec(double **dists, unsigned int n, unsigned int curIndex, double curDist, unsigned int curPath[], double &minDist, unsigned int path[]);
+    double backtracking(double **dists, unsigned int n, unsigned int path[]);
+    /**
      * @brief Método que obtém os vértices do grafo
      * @return Um vetor com os vértices do grafo
      **/
-     int getDists(int v1, int v2);
-     double getLati(int v);
-     double getLongi(int v);
     std::vector<Vertex *> getVertexSet() const;
-    vector<string> getLongitudes();
-    vector<string> getLatitudes();
-    vector<Vertex*> getLongtNodes(string &longitude);
-    vector<Vertex*> getLatNodes(string &latitude);
-    double edmondsKarpOptm(string source, string target);
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
@@ -125,31 +126,6 @@ protected:
      * @param residual Fluxo Residual
      **/
     void testAndVisit(std::queue< Vertex*> &q, Edge *e, Vertex *w, double residual);
-    /**
-     * @brief Método para descobrir o Augmenting Path
-     * @param s Vértice de origem
-     * @param t Vértice de destino
-     * @retval true Quando o vértice de destino é visitado
-     * @retval false Quando o vértice de destino ainda não foi visitado
-     **/
-    bool findAugmentingPath(Vertex *s, Vertex *t);
-    /**
-     * @brief Método para descobrir o fluxo residual mínimo
-     * @param s Vértice de origem
-     * @param t Vértice de destino
-     * @return Número do fluxo residual mínimo
-     **/
-    double findMinResidualAlongPath(Vertex *s, Vertex *t);
-    /**
-     * @brief Método para definir o fluxo residual ao longo do algoritmo
-     * @param s Vértice de origem
-     * @param t Vértice de destino
-     * @param f Fluxo residual
-     **/
-    void augmentFlowAlongPath(Vertex *s, Vertex *t, double f);
-    bool findAugmentingPathOptm(Vertex *s, Vertex *t, double c);
-    double findMinResidualAlongPathOptm(Vertex *s, Vertex *t, double c);
-    void augmentFlowAlongPathOptm(Vertex *s, Vertex *t, double f, double c);
 };
 
 void deleteMatrix(int **m, int n);

@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "DA_PROJ2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-DA_PROJ2-Debug-bc67ed927a4c14628193.json",
+					"jsonFile" : "target-DA_PROJ2-Debug-1c87b059f04c7699bf1e.json",
 					"name" : "DA_PROJ2",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/2ibi/aulas/da/DA/DA/PROJ_2/src/cmake-build-debug",
-		"source" : "C:/Users/2ibi/aulas/da/DA/DA/PROJ_2/src"
+		"build" : "C:/Users/anaso/Documents/FEUP/DA/DA/PROJ_2/src/cmake-build-debug",
+		"source" : "C:/Users/anaso/Documents/FEUP/DA/DA/PROJ_2/src"
 	},
 	"version" : 
 	{

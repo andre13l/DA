@@ -6,11 +6,9 @@
 
 #include "VertexEdge.h"
 
-#include <utility>
-
 /************************* Vertex  **************************/
 
-Vertex::Vertex(int id, std::string name, std::string longitude, std::string latitude): id(id), name(std::move(name)), longitude(std::move(longitude)), latitude(std::move(latitude)) {}
+Vertex::Vertex(int id, std::string name, std::string longitude, std::string latitude): id(id), name(name), longitude(longitude), latitude(latitude) {}
 
 Edge * Vertex::addEdge(Vertex *d, double dist) {
     auto newEdge = new Edge(this, d, dist);

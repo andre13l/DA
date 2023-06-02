@@ -9,7 +9,6 @@
 Grafo::Grafo(string nodes, string edges){
     // Create Vertex with nodes.csv file
     string linha, name, longt, lat;
-    int i = 0;
     fstream nodesFile (nodes, ios::in);
     if(nodesFile.is_open()) {
         getline(nodesFile, linha);
@@ -18,8 +17,7 @@ Grafo::Grafo(string nodes, string edges){
             getline(str, name, ',');
             getline(str, longt, ',');
             getline(str, lat, ',');
-            addVertex(i, name, longt, lat);
-            i++;
+            addVertex(stoi(name), name, longt, lat);
         }
     } else
         cout<<"Could not open the nodes' file\n";
@@ -33,7 +31,7 @@ Grafo::Grafo(string nodes, string edges){
             getline(str, origin, ',');
             getline(str, destiny, ',');
             getline(str, distance, ',');
-            addBidirectionalEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(distance));
+            addEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(distance));
         }
     } else
         cout<<"Could not open the edges' file\n";
@@ -41,7 +39,6 @@ Grafo::Grafo(string nodes, string edges){
 
 Grafo::Grafo(string database){
     string linha, origin, destiny, distance;
-
     fstream databaseFile (database, ios::in);
     if(databaseFile.is_open()) {
         getline(databaseFile, linha);
@@ -50,31 +47,43 @@ Grafo::Grafo(string database){
             getline(str, origin, ',');
             getline(str, destiny, ',');
             getline(str, distance, ',');
-            addBidirectionalEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(distance));
+            addVertex(stoi(origin), origin);
+            addVertex(stoi(destiny), destiny);
+            addEdge(findVertexIdName(origin), findVertexIdName(destiny), stod(distance));
         }
     } else
-        cout<<"Could not open the stations' file\n";
+        cout<<"Could not open the database's file\n";
 }
 
 int Grafo::getNumVertex() const {
     return vertexSet.size();
 }
 
-int Grafo::getDists(int v1, int v2) {
-    for(auto &e:vertexSet[v1]->getAdj()){
-        if(e->getDest()->getId() == v2){
-            return e->getDistance();
+double** Grafo::getDists() {
+    int n = getNumVertex();
+    double **dists = new double *[n];
+    for (int i = 0; i < n; ++i) {
+        dists[i] = new double[n];
+    }
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            bool ti = false;
+            if(i==j){
+                dists[i][j]=0;
+            }
+            else if(!ti){
+                dists[i][j]=-1;
+            }
+            for(auto &e:vertexSet[i]->getAdj()){
+                if(e->getDest()->getId() == j){
+                    dists[i][j]= e->getDistance();
+                    ti = true;
+                }
+            }
         }
     }
-    return 0;
-}
-
-double Grafo::getLati(int v) {
-    return stoi(vertexSet[v]->getLatitude());
-}
-
-double Grafo::getLongi(int v) {
-    return stoi(vertexSet[v]->getLongitude());
+    return dists;
 }
 
 std::vector<Vertex *> Grafo::getVertexSet() const {
@@ -109,6 +118,12 @@ bool Grafo::addVertex(const int &id, string &name, string &longitude, string &la
     return true;
 }
 
+bool Grafo::addVertex(const int &id, const string &name) {
+    if (findVertex(id) != nullptr)
+        return false;
+    vertexSet.push_back(new Vertex(id, name, "0", "0"));
+    return true;
+}
 
 bool Grafo::removeVertex(const string &name) {
     Vertex* v = findVertexName(name);
@@ -181,203 +196,47 @@ void Grafo::testAndVisit(queue<Vertex *> &q, Edge *e, Vertex *w, double residual
     }
 }
 
-bool Grafo::findAugmentingPath(Vertex *s, Vertex *t) {
-    for(auto v : vertexSet) {
-        v->setVisited(false);
-    }
-    s->setVisited(true);
-    std::queue<Vertex *> q;
-    q.push(s);
-    while( ! q.empty() && ! t->isVisited()) {
-        auto v = q.front();
-        q.pop();
-        for(auto e: v->getAdj()) {
-            testAndVisit(q, e, e->getDest(), e->getDistance() - e->getFlow());
-        }
-        for(auto e: v->getIncoming()) {
-            testAndVisit(q, e, e->getOrig(), e->getFlow());
-        }
-    }
-    return t->isVisited();
-}
-
-double Grafo::findMinResidualAlongPath(Vertex *s, Vertex *t) {
-    double f = INF;
-    for (auto v = t; v != s; ) {
-        auto e = v->getPath();
-        if (e->getDest() == v) {
-            f = std::min(f, e->getDistance() - e->getFlow());
-            v = e->getOrig();
-        }
-        else {
-            f = std::min(f, e->getFlow());
-            v = e->getDest();
-        }
-    }
-    return f;
-}
-
-void Grafo::augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
-    for (auto v = t; v != s; ) {
-        auto e = v->getPath();
-        double flow = e->getFlow();
-        if (e->getDest() == v) {
-            e->setFlow(flow + f);
-            v = e->getOrig();
-        }
-        else {
-            e->setFlow(flow - f);
-            v = e->getDest();
-        }
-    }
-}
-
-double Grafo::edmondsKarp(string source, string target) {
-    Vertex* s = findVertexName(source);
-    Vertex* t = findVertexName(target);
-    if (s == nullptr || t == nullptr || s == t)
-        throw std::logic_error("Invalid source and/or target vertex");
-    // Reset the flows
-    for (auto v : vertexSet) {
-        for (auto e: v->getAdj()) {
-            e->setFlow(0);
-        }
-    }
-    // Loop to find augmentation paths and maximumFlow
-    double maxFlow = 0;
-    while( findAugmentingPath(s, t) ) {
-        double f = findMinResidualAlongPath(s, t);
-        maxFlow += f;
-        augmentFlowAlongPath(s, t, f);
-    }
-    return maxFlow;
-}
-
-vector<string> Grafo::getLongitudes() {
-    vector<string> municipies = {};
-    for(auto i:vertexSet){
-        bool isduplicate=false;
-        for(auto j:municipies){
-            if(i->getLongitude()==j){
-                isduplicate= true;
-                break;
+void Grafo::tspBTRec(double **dists, unsigned int n, unsigned int curIndex, double curDist, unsigned int curPath[], double &minDist, unsigned int path[]) {
+    if(curIndex == n) {
+        // add the distance back to the initial node
+        curDist += dists[curPath[n - 1]][curPath[0]];
+        if (curDist < minDist) {
+            cout << "inside if curDist < minDist; curDist=" << curDist << ", minDist=" << minDist << endl;
+            minDist = curDist;
+            // Copy the current state to the array storing the best state found so far
+            for (unsigned int i = 0; i < n; i++) {
+                path[i] = curPath[i];
             }
         }
-        if(!isduplicate){
-            municipies.push_back(i->getLongitude());
-        }
+        return;
     }
-    return municipies;
-}
-
-vector<string> Grafo::getLatitudes() {
-    vector<string> districts={};
-    for(auto i:vertexSet){
-        bool isduplicate=false;
-        for(auto j:districts){
-            if(i->getLatitude()==j){
-                isduplicate= true;
-                break;
+    // Try to move to the i-th vertex if the total distance does not exceed the best distance found and the vertex is not yet visited in curPath
+    for(unsigned int i = 1; i < n; i++) { // i starts at 1 and not 0 since it is assumed that node 0 is the initial node so it will not be in the middle of the path
+        if(curDist + dists[curPath[curIndex - 1]][i] < minDist) {
+            bool isNewVertex = true;
+            for(unsigned int j = 1; j < curIndex; j++) {
+                if(curPath[j] == i) {
+                    isNewVertex = false;
+                    break;
+                }
+            }
+            if(isNewVertex) {
+                curPath[curIndex] = i;
+                tspBTRec(dists,n,curIndex+1,curDist + dists[curPath[curIndex - 1]][curPath[curIndex]],curPath,minDist,path);
             }
         }
-        if(!isduplicate){
-            districts.push_back(i->getLatitude());
-        }
-    }
-    return districts;
-}
-
-vector<Vertex*> Grafo::getLongtNodes(string &longitude){
-    vector<Vertex*>a={};
-    for(auto i:vertexSet){
-        if(i->getLongitude()==longitude)
-            a.push_back(i);
-    }
-    return a;
-}
-
-vector<Vertex*> Grafo::getLatNodes(string &latitude){
-    vector<Vertex*>a={};
-    for(auto i:vertexSet){
-        if(i->getLatitude()==latitude)
-            a.push_back(i);
-    }
-    return a;
-}
-
-bool Grafo::findAugmentingPathOptm(Vertex *s, Vertex *t, double c) {
-    for(auto v : vertexSet) {
-        v->setVisited(false);
-    }
-    s->setVisited(true);
-    std::queue<Vertex *> q;
-    q.push(s);
-    while( ! q.empty() && ! t->isVisited()) {
-        auto v = q.front();
-        q.pop();
-        for(auto e: v->getAdj()) {
-            testAndVisit(q, e, e->getDest(), e->getDistance() - e->getFlow());
-        }
-        for(auto e: v->getIncoming()) {
-            testAndVisit(q, e, e->getOrig(), e->getFlow());
-        }
-    }
-    return t->isVisited();
-}
-
-double Grafo::findMinResidualAlongPathOptm(Vertex *s, Vertex *t, double c) {
-    double f = INF;
-    for (auto v = t; v != s; ) {
-        auto e = v->getPath();
-        if (e->getDest() == v) {
-            f = std::min(f, e->getDistance() - e->getFlow());
-            v = e->getOrig();
-        }
-        else {
-            f = std::min(f, e->getFlow());
-            v = e->getDest();
-        }
-    }
-    return f;
-}
-
-void Grafo::augmentFlowAlongPathOptm(Vertex *s, Vertex *t, double f, double c) {
-    for (auto v = t; v != s; ) {
-        auto e = v->getPath();
-        double flow = e->getFlow();
-        if (e->getDest() == v) {
-            e->setFlow(flow + f);
-            v = e->getOrig();
-        }
-        else {
-            e->setFlow(flow - f);
-            v = e->getDest();
-        }
     }
 }
 
-double Grafo::edmondsKarpOptm(string source, string target) {
-    Vertex* s = findVertexName(source);
-    Vertex* t = findVertexName(target);
-    if (s == nullptr || t == nullptr || s == t)
-        throw std::logic_error("Invalid source and/or target vertex");
-    // Reset the flows
-    for (auto v : vertexSet) {
-        for (auto e: v->getAdj()) {
-            e->setFlow(0);
-        }
-    }
-    // Loop to find augmentation paths and maximumFlow
-    double maxFlow = 0;
-    double minCost = 0;
-    double c = 0;
-    while( findAugmentingPathOptm(s, t, c) ) {
-        double f = findMinResidualAlongPathOptm(s, t, c);
-        maxFlow += f;
-        //minCost = f*;
-        augmentFlowAlongPathOptm(s, t, f, c);
-    }
-    return minCost;
+double Grafo::backtracking(double **dists, unsigned int n, unsigned int *path) {
+    unsigned int curPath[10000]; // static memory allocation is faster :)
+    double minDist = std::numeric_limits<double>::max();
+
+    // Assumes path starts at node 0 ...
+    curPath[0] = 0;
+    // ... so in the first recursive call curIndex starts at 1 rather than 0
+    tspBTRec(dists, n, 1, 0, curPath, minDist, path);
+    return minDist;
 }
 
 Grafo::~Grafo() {

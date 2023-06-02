@@ -5,7 +5,7 @@
  *********************************************************************/
 
 #include <iostream>
-#include "ServiceMetrics.h"
+#include "Grafo.h"
 #ifndef DA_PROJ1_MENU_H
 #define DA_PROJ1_MENU_H
 using namespace std;
@@ -17,7 +17,7 @@ using namespace std;
 class Menu {
 public:
     Menu();
-    Menu(ServiceMetrics* servico);
+    Menu(Grafo* graph);
     /**
      * @brief Menu para escolher o tipo de grafo
      **/
@@ -27,13 +27,17 @@ public:
      **/
     void showToyGraphMenu();
     /**
-     * @brief Menu para escolher os ficheiros que vão construir o grafo sobre a base de dados de Toy Graphs
+     * @brief Menu para escolher os ficheiros que vão construir o grafo sobre a base de dados de Extra Fully Connected
      **/
     void showExtraFullyConnectedGraphMenu();
     /**
-     * @brief Menu para escolher os ficheiros que vão construir o grafo sobre a base de dados de Toy Graphs
+     * @brief Menu para escolher os ficheiros que vão construir o grafo sobre a base de dados de Real World
      **/
     void showRealWorldGraphMenu();
+    /**
+     * @brief Menu para escolher os ficheiros que vão construir o grafo sobre a base de dados extra
+     **/
+    void showOtherGraph();
     /**
      * @brief Menu principal para escolher entre as heurísticas
      **/
@@ -51,17 +55,17 @@ public:
      **/
     void showOther();
     /**
-     * @brief Método que obtém o ServiceMetric
-     * @return Objeto da classe ServiceMetric correspondente
+     * @brief Método que obtém o Grafo
+     * @return Objeto da classe Grafo correspondente
      **/
-    ServiceMetrics* getService();
+    Grafo* getGraph();
     /**
-     * @brief Método que define o service do menu
-     * @param service ServiceMetric que o menu vai adotar
+     * @brief Método que define o grafo do menu
+     * @param graph Grafo que o menu vai adotar
      **/
-    void setService(ServiceMetrics* service);
+    void setGraph(Grafo* graph);
 protected:
-    ServiceMetrics* service;
+    Grafo* graph;
 };
 
 
